@@ -1,269 +1,412 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Vidarbha Tigers</title>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>TVT Enquiries — Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--o:#ff6500;--b:#050505;--p:#111;--m:#aaa;--l:#292929}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--b);color:#fff;font:15px/1.6 Montserrat,sans-serif}a{text-decoration:none;color:inherit}img{width:100%;height:100%;object-fit:cover}.c{width:min(1200px,92%);margin:auto}.s{padding:52px 0}.e{color:var(--o);font-size:12px;font-weight:900;letter-spacing:2px;text-transform:uppercase}h1,h2,h3{font-family:Anton;text-transform:uppercase;line-height:1.02}h2{font-size:clamp(42px,6vw,72px);margin:8px 0 24px}.o{color:var(--o)}.btn{border:1px solid #555;background:transparent;color:#fff;padding:15px 24px;font-weight:900;text-transform:uppercase;cursor:pointer;transition:.25s;font-family:inherit;font-size:13px}.btn:hover{transform:translateY(-3px);border-color:var(--o);box-shadow:0 0 30px #ff650055}.primary{background:var(--o);border-color:var(--o)}
-@keyframes hb{0%,100%{transform:scale(1)}10%{transform:scale(1.07)}20%{transform:scale(1)}30%{transform:scale(1.07)}40%{transform:scale(1)}}
-.open{animation:hb 2.2s ease-in-out infinite}
-.open:hover{animation-play-state:paused}
-nav{position:fixed;inset:0 0 auto;height:74px;z-index:20;background:#050505d9;backdrop-filter:blur(12px);border-bottom:1px solid #ffffff10}.nav{height:100%;display:flex;align-items:center;justify-content:space-between}.brand{font:20px/1 Anton;display:flex;align-items:center;gap:10px}.brand img{width:42px;height:42px;object-fit:cover;border-radius:8px;border:1px solid #ff650055}.brand b{display:block;color:var(--o);font-size:27px}.links{display:flex;gap:26px;align-items:center;font-size:11px;font-weight:800;text-transform:uppercase}
-.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(90deg,#000 0%,#000b 43%,#0004),url('https://i.ibb.co/1tVX5bpj/Whats-App-Image-2026-07-14-at-09-25-18.jpg') center/cover}
-.hero::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;mix-blend-mode:overlay;opacity:.5;background-image:repeating-linear-gradient(115deg,transparent 0 3px,#ff6500 3px 4px,transparent 4px 40px)}
-.claw{position:absolute;pointer-events:none;z-index:2}
-.claw-tr{top:6%;right:2%;width:280px;opacity:.85;transform:rotate(6deg)}
-.claw-bl{bottom:4%;left:-3%;width:220px;opacity:.4;transform:rotate(-14deg) scaleX(-1)}
-.claw svg{width:100%;height:auto;display:block}
-.hc,.hero .c{position:relative;z-index:3}.hc{max-width:720px;padding-top:70px}.hero h1{font-size:clamp(42px,6.5vw,88px);margin:12px 0 20px;text-shadow:0 10px 40px #000}.hero p{max-width:600px;color:#ddd}.tags{display:flex;gap:20px;flex-wrap:wrap;margin:25px 0;font-size:11px;font-weight:800}.acts{display:flex;gap:12px;flex-wrap:wrap}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}.pic{height:550px;position:relative}.pic:after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 80px #000;border:1px solid #ff650055}.copy p{color:var(--m);margin:0 0 13px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--l);background:#0b0b0b}.stat{padding:34px;border-right:1px solid var(--l)}.stat:last-child{border:0}.stat strong{font:48px Anton;color:var(--o);display:block}.stat span{font-size:11px;font-weight:900;text-transform:uppercase}.stat small{display:block;color:#777}
-.mvbox{display:grid;grid-template-columns:1fr 1fr;gap:14px}.mvbox>div{padding:42px;border:1px solid var(--l)}.mvbox .m1{background:var(--o);color:#111}.mvbox .m2{background:#141414}.mvicon{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;background:#00000022;margin-bottom:14px}.m2 .mvicon{background:#ff650022;color:var(--o)}.mvbox h3{font-size:28px;margin:6px 0 10px}.mvbox p{color:inherit;opacity:.85}.m2 p{color:#bbb}.mvimg{height:170px;margin-top:18px;overflow:hidden;border-radius:6px}.m1 .mvimg{box-shadow:inset 0 0 0 1px #00000033}.m2 .mvimg{box-shadow:inset 0 0 0 1px #ff650033}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:35px}.card{padding:30px;min-height:210px;background:linear-gradient(145deg,#171717,#090909);border:1px solid var(--l);transition:.3s;position:relative;overflow:hidden}.card:before{content:"";position:absolute;top:-40px;right:-40px;width:100px;height:100px;background:radial-gradient(circle,#ff650022,transparent 70%)}.card:hover{transform:translateY(-7px);border-color:var(--o);box-shadow:0 15px 35px #ff650022}.card:hover .icb{background:var(--o);color:#111;transform:rotate(-6deg) scale(1.08)}.card .icb{width:54px;height:54px;border-radius:14px;background:#1c1c1c;border:1px solid var(--o);display:flex;align-items:center;justify-content:center;font-size:24px;transition:.3s;color:var(--o)}.card h3{font-size:25px;margin:18px 0 7px}.card p{color:#bbb}
-.founders{background:#090909;position:relative;overflow:hidden}.founders:before{content:"";position:absolute;top:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,#ff650018,transparent 70%)}.founderwrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;position:relative}.founderimg{height:610px;border:2px dashed #ff650055;border-radius:16px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;background:radial-gradient(circle,#ff650012,transparent 70%)}.founderimg .ph{width:74px;height:74px;border-radius:50%;background:#151515;border:1px solid #ff650066;display:flex;align-items:center;justify-content:center;font-size:26px;color:var(--o)}.founderimg span{color:#666;font-size:11px;font-weight:900;letter-spacing:2px;text-transform:uppercase}.founder{background:#121212;border-left:3px solid var(--o);border-radius:0 10px 10px 0;padding:20px 20px 20px 26px;margin-top:13px;position:relative;transition:.3s}.founder:hover{transform:translateX(6px);background:#161616;box-shadow:0 10px 25px #ff650018}.founder:before{content:attr(data-n);position:absolute;right:18px;top:14px;font:34px Anton;color:#ff650022}.founder span{color:var(--o);font-size:11px;font-weight:900;text-transform:uppercase}.founder h3{font-size:26px;display:inline-block;border:1px solid var(--o);padding:3px 12px;border-radius:5px;margin-top:4px}.founder p{color:#bbb}
-.code{text-align:center;background:radial-gradient(circle,#ff65001f,transparent 55%)}.codegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:35px}.codegrid div{padding:38px 15px;border:1px solid var(--l);background:#0c0c0ccc}.codegrid b{color:var(--o)}.codegrid h3{font-size:30px;margin:8px}.codegrid p{color:var(--m)}
-.ride{display:grid;grid-template-columns:.9fr 1.1fr;background:#0c0c0c;border:1px solid var(--l)}.ri{padding:40px}.ri h3{font-size:44px;margin:15px 0}.ri p{color:#bbb;margin:2px 0}.count{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:20px 0}.time{background:#181818;padding:12px;text-align:center}.time strong{font:30px Anton;display:block}.time span{font-size:9px;color:#888}.ridepic{align-self:center;max-height:300px;background:#000;display:flex;align-items:center;justify-content:center;padding:16px}.ridepic img{object-fit:contain;background:#000;max-height:100%}
-.ridepic-mobile{display:none}.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:30px}.gi{height:300px;position:relative;overflow:hidden}.gi img{transition:.5s}.gi:hover img{transform:scale(1.08)}.ov{position:absolute;inset:0;padding:17px;display:flex;flex-direction:column;justify-content:end;background:linear-gradient(transparent 40%,#000f)}.ov h3{font-size:18px}.ov small{color:#ccc;font-size:11px}
-.community{display:flex;flex-wrap:wrap;gap:26px;margin-top:35px}.member{text-align:center;width:130px}.member .av{width:96px;height:96px;border-radius:50%;margin:0 auto 10px;border:2px solid var(--o);overflow:hidden}.member h4{font:15px Anton;letter-spacing:.5px}.member span{display:block;color:#999;font-size:11px;margin-top:2px}
-.hearfollow{display:grid;grid-template-columns:1fr 1fr;gap:40px}.testi{background:#101010;border:1px solid var(--l);padding:22px;margin-bottom:14px}.testi .stars{color:var(--o);font-size:13px;margin-bottom:8px}.testi p{color:#ddd;font-style:italic}.testi .who{display:flex;align-items:center;gap:10px;margin-top:12px}.testi .who img{width:32px;height:32px;border-radius:50%}.testi .who b{font-size:12px}.testi .who span{display:block;color:#888;font-size:10px}
-.igrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.igrid .gi{height:150px}
-.safe{background:var(--o);color:#080808}.safegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.safegrid div{border-top:2px solid #080808;padding-top:15px}.safe h3{font-size:27px}
-.join{background:linear-gradient(90deg,#000f,#000c),url('https://i.ibb.co/G46Cfb3T/Whats-App-Image-2026-07-14-at-09-25-19-2.jpg') center/cover}.form{display:grid;grid-template-columns:1fr 1fr;gap:10px}.form input,.form select,.form textarea{background:#111;border:1px solid #333;color:#fff;padding:16px;font-family:inherit;width:100%}.full{grid-column:1/-1}
-footer{padding:55px 0 25px;border-top:1px solid var(--l)}.footgrid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.3fr;gap:30px}.footgrid h4{font-size:12px;letter-spacing:1px;color:var(--o);text-transform:uppercase;margin-bottom:16px}.footgrid ul{list-style:none}.footgrid li{margin-bottom:10px}.footgrid li a{color:#999;font-size:13px}.footgrid li a:hover{color:var(--o)}.social{display:flex;gap:12px}.social a{width:38px;height:38px;border-radius:50%;border:1px solid var(--l);display:flex;align-items:center;justify-content:center;font-size:15px;transition:.25s}.social a:hover{background:var(--o);border-color:var(--o);color:#111}.foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:10px}.foot-brand img{width:44px;height:44px;border-radius:8px}.foot-tag{color:#777;font-size:12px;margin-top:6px}.wa-box{margin-top:6px}.wa-box p{color:#999;font-size:12px;margin-bottom:12px}.bottom-line{border-top:1px solid var(--l);margin-top:40px;padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#777;font-size:12px}
-.pop{position:fixed;inset:0;z-index:50;background:#000d;display:none;place-items:center;padding:20px}.pop.show{display:grid}.modal{width:min(680px,100%);max-height:88vh;overflow-y:auto;background:#0d0d0d;border:1px solid var(--o);padding:38px;position:relative;box-shadow:0 0 70px #ff650044}.modal h3{font-size:40px}.x{position:sticky;float:right;top:0;right:0;background:#0d0d0d;border:1px solid #333;color:#fff;font-size:22px;cursor:pointer;width:36px;height:36px;border-radius:50%}
-.fgroup{grid-column:1/-1;margin-top:6px}.fgroup h4{font:14px Anton;letter-spacing:1px;color:var(--o);text-transform:uppercase;border-left:3px solid var(--o);padding-left:9px;margin:22px 0 12px}.fgroup:first-of-type h4{margin-top:6px}
-.chkrow{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px 20px;margin:4px 0 2px}.chkrow label{display:flex;align-items:center;gap:7px;font-size:13px;color:#ccc;font-weight:400}.chkrow input{width:auto;accent-color:var(--o)}
-.float{position:fixed;right:22px;bottom:22px;z-index:19;width:58px;height:58px;border:0;border-radius:50%;background:var(--o);font-size:11px;font-weight:900;cursor:pointer;box-shadow:0 0 35px #ff650088}
-@media(max-width:540px){.float{left:50%;transform:translateX(-50%);right:auto;bottom:16px;width:auto;border-radius:30px;padding:0 22px;height:46px;font-size:12px;letter-spacing:1px}}.reveal{opacity:0;transform:translateY(25px);transition:.7s}.reveal.on{opacity:1;transform:none}
-/* ---- Hamburger menu ---- */
-.ham{display:none;flex-direction:column;gap:5px;background:transparent;border:none;cursor:pointer;padding:6px;z-index:25}
-.ham span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:.3s}
-.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.ham.open span:nth-child(2){opacity:0}
-.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+:root{--o:#ff6500;--b:#050505;--ink:#10131a;--sub:#5b6270;--paper:#f5f6fa;--card:#fff;--line:#e3e6ee;--line-s:#c9ceda;--brand:#ff6500}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--paper);color:var(--ink);font:14px/1.6 Inter,sans-serif;min-height:100vh}
+a{text-decoration:none;color:inherit}
 
-@media(max-width:850px){
-  .ham{display:flex}
-  .links{
-    position:fixed;top:74px;left:0;right:0;bottom:0;
-    background:#050505f0;backdrop-filter:blur(16px);
-    flex-direction:column;align-items:center;justify-content:center;
-    gap:32px;font-size:14px;
-    transform:translateX(100%);transition:transform .35s ease;
-    pointer-events:none;
-  }
-  .links.active{transform:translateX(0);pointer-events:auto}
-  .links a{display:block;font-size:16px}
-  .links .btn.primary{display:none}
-  .grid2,.founderwrap,.hearfollow{grid-template-columns:1fr}
-  .ride{grid-template-columns:1fr;flex-direction:column}
-  .ridepic{max-height:240px;padding:16px}
-  .ridepic-desktop{display:none}
-  .ridepic-mobile{display:block;width:100%;overflow:hidden;margin-bottom:18px;background:#000}
-  .ridepic-mobile img{width:100%;height:auto;object-fit:contain}
-  .cards{grid-template-columns:1fr 1fr}
-  .gallery{grid-template-columns:1fr 1fr}
-  .footgrid{grid-template-columns:1fr 1fr}
-  .mvbox{grid-template-columns:1fr}
-  .pic{height:340px}
-  .founderimg{height:320px}
-  .ridepic{padding:0}
-  .modal{padding:26px}
+/* LOGIN */
+#loginScreen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:var(--b)}
+.login-card{width:100%;max-width:360px;background:#111;border:1px solid #333;border-radius:14px;padding:34px 30px;box-shadow:0 12px 32px rgba(0,0,0,.4)}
+.login-logo{font:32px Anton;color:var(--o);margin-bottom:4px}
+.login-sub{font-size:13px;color:#888;margin-bottom:24px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:11px;font-weight:700;color:#888;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em}
+.field input{width:100%;font:14px Inter,sans-serif;padding:10px 12px;border:1px solid #333;border-radius:8px;background:#1a1a1a;color:#fff}
+.field input:focus{outline:none;border-color:var(--o);box-shadow:0 0 0 3px rgba(255,101,0,.18)}
+.login-err{font-size:13px;color:#e05;margin:10px 0 0;min-height:16px}
+.btn{font:13px/1 Inter,sans-serif;font-weight:700;border-radius:8px;border:1px solid var(--line-s);background:var(--card);color:var(--ink);padding:9px 16px;cursor:pointer;transition:.15s}
+.btn:hover{background:var(--paper)}
+.btn-primary{background:var(--o);border-color:var(--o);color:#fff;width:100%;padding:12px}
+.btn-primary:hover{background:#e05a00}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+
+/* DASHBOARD */
+#dashboard{display:none}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;background:var(--b);border-bottom:2px solid var(--o);position:sticky;top:0;z-index:10}
+.topbar-brand{font:22px Anton;color:#fff;display:flex;align-items:center;gap:10px}
+.topbar-brand span{color:var(--o)}
+.topbar-right{display:flex;align-items:center;gap:12px;font-size:13px;color:#aaa}
+.btn-sm{font-size:12px;padding:7px 14px;border-radius:6px;border:1px solid #444;background:transparent;color:#ccc;cursor:pointer}
+.btn-sm:hover{border-color:var(--o);color:#fff}
+
+.wrap{max-width:1280px;margin:0 auto;padding:24px 20px 60px}
+
+/* STATS */
+.stats-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 20px;flex:1;min-width:130px}
+.stat-num{font:32px Anton;color:var(--o)}
+.stat-label{font-size:11px;color:var(--sub);margin-top:2px;text-transform:uppercase;letter-spacing:.04em}
+
+/* FILTERS */
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:16px}
+.filters input[type=text],.filters input[type=date],.filters select{font:13px Inter,sans-serif;padding:8px 10px;border:1px solid var(--line-s);border-radius:7px;background:var(--paper);color:var(--ink)}
+.filters input[type=text]{flex:1;min-width:200px}
+.filters input:focus,.filters select:focus{outline:none;border-color:var(--o)}
+.date-sep{font-size:12px;color:var(--sub)}
+.clear-btn{font-size:12px;color:var(--o);background:none;border:none;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+
+/* TABLE */
+.table-wrap{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+table{width:100%;border-collapse:collapse}
+thead th{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--sub);font-weight:700;padding:11px 14px;border-bottom:1px solid var(--line);background:#fafbfd;text-align:left;white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--line)}
+tbody tr:last-child{border:none}
+tbody tr:hover{background:#fafbfd}
+tbody td{padding:11px 14px;font-size:13px;vertical-align:top}
+.badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.04em}
+.badge-quick{background:#fff3e8;color:#c05000}
+.badge-modal{background:#e8f0ff;color:#1357dc}
+.name-bold{font-weight:700}
+.sub-text{color:var(--sub);font-size:12px;margin-top:2px}
+
+/* DETAIL MODAL */
+.detail-pop{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.7);display:none;place-items:center;padding:20px}
+.detail-pop.show{display:grid}
+.detail-modal{width:min(700px,100%);max-height:90vh;overflow-y:auto;background:#fff;border-radius:14px;padding:32px;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.15)}
+.detail-modal h2{font:28px Anton;margin-bottom:18px}
+.detail-close{position:sticky;float:right;top:0;background:#fff;border:1px solid var(--line-s);border-radius:50%;width:34px;height:34px;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 20px}
+.detail-row{padding:8px 0;border-bottom:1px solid var(--line)}
+.detail-row:last-child{border:none}
+.detail-key{font-size:11px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.detail-val{font-size:13.5px;color:var(--ink);word-break:break-word}
+.detail-section{grid-column:1/-1;font:14px Anton;letter-spacing:1px;color:var(--o);text-transform:uppercase;border-left:3px solid var(--o);padding-left:10px;margin:12px 0 4px}
+
+/* EMPTY / LOADING */
+.state-box{padding:60px 20px;text-align:center;color:var(--sub);font-size:14px}
+.spinner{width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,101,0,.2);border-top-color:var(--o);animation:spin .7s linear infinite;display:inline-block;vertical-align:-3px;margin-right:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media(max-width:700px){
+  .wrap{padding:16px 12px 40px}
+  .table-wrap{overflow-x:auto}
+  table{min-width:680px}
+  .detail-grid{grid-template-columns:1fr}
 }
+</style>
+</head>
+<body>
 
-@media(max-width:540px){
-  .s{padding:38px 0}
-  .hero{min-height:100svh}
-  .hero h1{font-size:clamp(34px,9vw,46px)}
-  .hc{padding-top:90px}
-  .acts{flex-direction:column;align-items:flex-start}
-  .acts .btn{width:100%;text-align:center}
-  .stats{grid-template-columns:1fr 1fr}
-  .stat{border-right:0;border-bottom:1px solid var(--l)}
-  .stat:nth-child(odd){border-right:1px solid var(--l)}
-  .stat:last-child,.stat:nth-last-child(-n+2):nth-child(odd){border-bottom:0}
-  .cards,.codegrid,.gallery,.safegrid,.igrid{grid-template-columns:1fr}
-  .form{grid-template-columns:1fr}
-  .full,.form input,.form select,.form textarea{grid-column:auto}
-  .chkrow{flex-direction:column;gap:8px}
-  .pic,.founderimg{height:280px}
-  .footgrid{grid-template-columns:1fr}
-  .modal{padding:20px 16px}
-  .modal h3{font-size:28px}
-  .mvbox{grid-template-columns:1fr}
-  .mvbox>div{padding:28px}
-  .ride{display:grid;grid-template-columns:1fr}
-  .ri{padding:24px}
-  .ri h3{font-size:32px}
-  .count{grid-template-columns:repeat(4,1fr)}
-  .ridepic{padding:16px;max-height:220px}
-  .community{justify-content:center}
-  .member{width:110px}
-  .hearfollow{gap:28px}
-  .safe .safegrid{grid-template-columns:1fr 1fr}
-  .join .grid2{grid-template-columns:1fr}
-  h2{font-size:clamp(32px,8vw,48px)}
-  .claw-tr{width:150px}
-  .claw-bl{width:100px}
-  .bottom-line{flex-direction:column;gap:6px;text-align:center}
-}
-</style></head><body>
-<nav><div class="c nav"><a class="brand" href="#"><img src="https://i.ibb.co/Gfw6RZHc/Whats-App-Image-2026-07-14-at-09-25-18-1.jpg" alt="Vidarbha Tigers Logo">THE VIDARBHA<b>TIGERS</b></a><button class="ham" id="ham" aria-label="Toggle menu"><span></span><span></span><span></span></button><div class="links" id="navLinks"><a href="#" onclick="closeNav()">Home</a><a href="#about" onclick="closeNav()">About</a><a href="#rides" onclick="closeNav()">Rides</a><a href="#gallery" onclick="closeNav()">Gallery</a><a href="#community" onclick="closeNav()">Community</a><a href="#contact" onclick="closeNav()">Contact</a><button class="btn primary open">Join The Vidarbha Tigers Community</button></div></div></nav>
-
-<header class="hero">
-<div class="claw claw-tr"><svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#ff6500" stroke-linecap="round"><path d="M20 40 C90 90, 150 160, 260 260" stroke-width="10" opacity=".9"/><path d="M55 15 C120 75, 175 145, 280 230" stroke-width="8" opacity=".7"/><path d="M90 0 C145 60, 195 130, 295 200" stroke-width="6" opacity=".5"/></g></svg></div>
-<div class="claw claw-bl"><svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#ff6500" stroke-linecap="round"><path d="M20 40 C90 90, 150 160, 260 260" stroke-width="9" opacity=".8"/><path d="M55 15 C120 75, 175 145, 280 230" stroke-width="7" opacity=".6"/><path d="M90 0 C145 60, 195 130, 295 200" stroke-width="5" opacity=".4"/></g></svg></div>
-<div class="c"><div class="hc"><div class="e">The Vidarbha Tigers</div><h1>Ride Together.<br><span class="o">Roar Together.</span></h1><p>Vidarbha's exclusive riding community for passionate riders, fearless explorers and those who live for the open road.</p><div class="tags"><span>GROUP RIDES</span><span>ADVENTURES</span><span>EVENTS</span><span>BROTHERHOOD</span></div><div class="acts"><button class="btn primary open">Join The Vidarbha Tigers Community</button><a class="btn" href="#rides">Explore Our Rides</a></div></div></div></header>
-
-<section class="s reveal" id="about"><div class="c grid2"><div class="pic"><img src="https://i.ibb.co/27ZCr061/Whats-App-Image-2026-07-14-at-09-25-17-1.jpg" alt="Vidarbha Tigers Community"></div><div class="copy"><div class="e">About The Community</div><h2>More Than Riders.<br><span class="o">We Are A Tribe.</span></h2><p>The Vidarbha Tigers is more than a riding community, it's a tribe of passionate riders united by adventure, brotherhood and the love of the open road.</p><p>Born in Vidarbha, we bring riders together to explore new roads, experience unforgettable journeys and create connections that go beyond motorcycles.</p><p><b>Different bikes. Different stories. One roar.</b></p><p class="o"><b>We are The Vidarbha Tigers.</b></p><div class="acts" style="margin-top:20px"><button class="btn primary open">Join The Vidarbha Tigers Community</button></div></div></div></section>
-
-<section class="s reveal"><div class="c"><div class="e">Community In Numbers</div><h2>Our Roar <span class="o">In Numbers.</span></h2><div class="stats"><div class="stat"><strong class="counter" data-n="100">0</strong><span>Riders</span><small>One growing tiger tribe</small></div><div class="stat"><strong class="counter" data-n="25">0</strong><span>Rides</span><small>Roads, memories and stories</small></div><div class="stat"><strong class="counter" data-n="15">0</strong><span>Destinations</span><small>Explored across Vidarbha</small></div><div class="stat"><strong class="counter" data-n="1">0</strong><span>Tiger Tribe</span><small>United on every road</small></div></div></div></section>
-
-<section class="s reveal"><div class="c"><div class="e">Our Purpose</div><h2>Our <span class="o">Mission & Vision.</span></h2><div class="mvbox"><div class="m1"><div class="mvicon">M</div><h3>Our Mission</h3><p>To build a strong and responsible riding community across Vidarbha where adventure, safety, discipline and brotherhood ride together.</p><div class="mvimg"><img src="https://i.ibb.co/tPDtPZpG/Whats-App-Image-2026-07-14-at-09-25-19-3.jpg" alt="On The Road"></div></div><div class="m2"><div class="mvicon">V</div><h3>Our Vision</h3><p>To become one of Vidarbha's most recognized riding communities and inspire a new generation of passionate and responsible riders.</p><div class="mvimg"><img src="https://i.ibb.co/rKWz9nyt/Whats-App-Image-2026-07-14-at-09-25-16.jpg" alt="Tigers Unite"></div></div></div></div></section>
-
-<section class="s reveal"><div class="c"><div class="e">The Tiger Experience</div><h2>This Is How <span class="o">Tigers Ride.</span></h2><div class="cards"><div class="card"><div class="icb"><i class="fa-solid fa-motorcycle"></i></div><h3>Group Rides</h3><p>Ride together. Explore together.</p></div><div class="card"><div class="icb"><i class="fa-solid fa-sun"></i></div><h3>Breakfast Rides</h3><p>Early roads. Fresh destinations. Great memories.</p></div><div class="card"><div class="icb"><i class="fa-solid fa-map-location-dot"></i></div><h3>Long Tours</h3><p>Discover new places. Conquer long distances.</p></div><div class="card"><div class="icb"><i class="fa-solid fa-flag-checkered"></i></div><h3>Rider Events</h3><p>Exclusive events, challenges and experiences.</p></div><div class="card"><div class="icb"><i class="fa-solid fa-people-group"></i></div><h3>Meetups</h3><p>Connect with passionate riders across Vidarbha.</p></div><div class="card"><div class="icb"><i class="fa-solid fa-mountain"></i></div><h3>Adventure</h3><p>New roads. New challenges. New stories.</p></div></div></div></section>
-
-<section class="s founders reveal" id="founders"><div class="c founderwrap"><div class="founderimg"><div class="ph"><i class="fa-solid fa-camera"></i></div><span>Founder Photo Coming Soon</span></div><div><div class="e">The People Behind The Roar</div><h2>Meet Our <span class="o">Founders.</span></h2><p style="color:#aaa">Every strong tribe begins with a vision. Meet the riders who started the journey and built a community around responsible riding, adventure and brotherhood.</p><div class="founder" data-n="01"><span>Founder & Community Lead</span><h3>Founder Name One</h3><p>Passionate rider and community builder focused on connecting riders across Vidarbha.</p></div><div class="founder" data-n="02"><span>Co-Founder & Ride Captain</span><h3>Founder Name Two</h3><p>Leads ride planning, formation discipline and memorable on-road experiences.</p></div><div class="founder" data-n="03"><span>Community Coordinator</span><h3>Founder Name Three</h3><p>Brings riders, events and community experiences together.</p></div></div></div></section>
-
-<section class="s code reveal" id="code"><div class="c"><div class="e">The Spirit Of The Tribe</div><h2>The Tiger <span class="o">Code.</span></h2><div class="codegrid"><div><b>01</b><h3>Ride Safe</h3><p>Respect every rider.</p></div><div><b>02</b><h3>Protect</h3><p>Protect the brotherhood.</p></div><div><b>03</b><h3>Explore</h3><p>Explore fearlessly.</p></div><div><b>04</b><h3>Brotherhood</h3><p>Never leave a Tiger behind.</p></div></div></div></section>
-
-<section class="s reveal" id="rides"><div class="c"><div class="e">Next Roar Begins In</div><h2>Monsoon <span class="o">Ride.</span></h2>
-<!-- Mobile-only image shown right after the heading -->
-<div class="ridepic-mobile"><img src="https://i.ibb.co/Yq7fhxh/Whats-App-Image-2026-07-14-at-09-12-36.jpg" alt="Monsoon Ride 19th July"></div>
-<div class="ride"><div class="ri"><div class="count"><div class="time"><strong id="d">00</strong><span>Days</span></div><div class="time"><strong id="h">00</strong><span>Hours</span></div><div class="time"><strong id="m">00</strong><span>Minutes</span></div><div class="time"><strong id="ss">00</strong><span>Seconds</span></div></div><h3>Monsoon <span class="o">Ride</span></h3><p>KTM Kamptee to Rajkamal Inn</p><p>19 July 2026</p><p>Time: 7:30 AM</p><p>In association with Patni KTM Kamptee</p><p class="o" style="margin-top:8px"><b>Roads are wet. Spirits are high.</b></p><br><button class="btn primary open" style="margin-bottom:0">Join The Vidarbha Tigers Community</button></div><div class="ridepic ridepic-desktop"><img src="https://i.ibb.co/Yq7fhxh/Whats-App-Image-2026-07-14-at-09-12-36.jpg" alt="Monsoon Ride 19th July"></div></div></div></section>
-
-<section class="s reveal" id="gallery"><div class="c"><div class="e">Ride Stories</div><h2>Roads We've <span class="o">Conquered.</span></h2><div class="gallery">
-<div class="gi"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRswFQCM5mkGNCJ40NbvgjbVlxxaU7vbSc-H13zWnvxedpFW4PGArR4ij6s&s=10"><div class="ov"><h3>Pench Breakfast Ride</h3><small>42 Tigers - 180 KM</small></div></div>
-<div class="gi"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxIuZFkZ_sccRQCI2b-3aqPzzFt9kfYwgnbaAuak3sb3H2_F8iaYuf9ns&s=10"><div class="ov"><h3>Amravati Ride</h3><small>35 Tigers - 160 KM</small></div></div>
-<div class="gi"><img src="https://cdn.getyourguide.com/image/format=auto,fit=crop,gravity=auto,quality=60,width=400,height=265,dpr=2/tour_img/f5a2913667eff72d1f622456c692c869e9606444d83fc1f6aaa5f7a1bb291bc0.png"><div class="ov"><h3>Tadoba Trail Ride</h3><small>50 Tigers - 200 KM</small></div></div>
-<div class="gi"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWlnOtBLUfVCDc_zg9tQz1zG0IY7MXzmaER8c2t7bmplV4nHIJsXB_A24U&s=10"><div class="ov"><h3>Sawner Night Ride</h3><small>30 Tigers - 150 KM</small></div></div>
-<div class="gi"><img src="https://i.ibb.co/Yq7fhxh/Whats-App-Image-2026-07-14-at-09-12-36.jpg" alt="Monsoon Ride 19th July"><div class="ov"><h3>Tadoba Trail Ride</h3><small>50 Tigers - 200 KM</small></div></div>
-<div class="gi"><img src="https://i.ibb.co/YF9M1FvH/Whats-App-Image-2026-07-14-at-09-25-19-4.jpg" alt="Vidarbha Tigers Ride"><div class="ov"><h3>Tiger Brotherhood</h3><small>Ride. Roar. Repeat.</small></div></div>
-<div class="gi"><img src="https://i.ibb.co/tPDtPZpG/Whats-App-Image-2026-07-14-at-09-25-19-3.jpg" alt="Vidarbha Tigers Ride"><div class="ov"><h3>On The Road</h3><small>Every road tells a story</small></div></div>
-<div class="gi"><img src="https://i.ibb.co/rKWz9nyt/Whats-App-Image-2026-07-14-at-09-25-16.jpg" alt="Vidarbha Tigers Ride"><div class="ov"><h3>Tigers Unite</h3><small>One tribe. One roar.</small></div></div>
-</div></div></section>
-
-<section class="s reveal" id="community"><div class="c"><div class="e">Meet The Tigers</div><h2>Meet The <span class="o">Community.</span></h2><div class="community">
-<div class="member"><div class="av"><img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=200&q=80"></div><h4>AMOL</h4><span>Duke 390</span><span>Tiger Since 2026</span></div>
-<div class="member"><div class="av"><img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&w=200&q=80"></div><h4>ROHIT</h4><span>Adventure 390</span><span>Tiger Since 2025</span></div>
-<div class="member"><div class="av"><img src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?auto=format&fit=crop&w=200&q=80"></div><h4>SAGAR</h4><span>RC 390</span><span>Tiger Since 2026</span></div>
-<div class="member"><div class="av"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"></div><h4>KARAN</h4><span>Duke 250</span><span>Tiger Since 2026</span></div>
-</div><p style="color:#888;margin-top:20px">Different bikes. Different stories. One tribe.</p><button class="btn" style="margin-top:14px">Meet The Community</button></div></section>
-
-<section class="s reveal"><div class="c hearfollow">
-<div><div class="e">Testimonials</div><h2>Hear The <span class="o">Roar.</span></h2>
-<div class="testi"><div class="stars">*****</div><p>"I joined for the rides. I stayed for the brotherhood."</p><div class="who"><img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&fit=crop&w=100&q=80"><div><b>Rahul</b><span>Duke 300 Rider</span></div></div></div>
-<div class="testi"><div class="stars">*****</div><p>"Best riding community in Vidarbha. The brotherhood is real!"</p><div class="who"><img src="https://images.unsplash.com/photo-1615109398623-88346a601842?auto=format&fit=crop&w=100&q=80"><div><b>Piyush</b><span>Adventure 390 Rider</span></div></div></div>
-<div class="testi"><div class="stars">*****</div><p>"Every ride is a new memory. Every tiger is family."</p><div class="who"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"><div><b>Abhishek</b><span>RC 390 Rider</span></div></div></div>
-</div>
-<div><div class="e">Follow The Roar</div><h2>On <span class="o">Instagram.</span></h2>
-<div class="igrid">
-<div class="gi"><img src="https://i.ibb.co/YF9M1FvH/Whats-App-Image-2026-07-14-at-09-25-19-4.jpg" alt="Vidarbha Tigers"></div>
-<div class="gi"><img src="https://i.ibb.co/tPDtPZpG/Whats-App-Image-2026-07-14-at-09-25-19-3.jpg" alt="Vidarbha Tigers"></div>
-<div class="gi"><img src="https://i.ibb.co/27ZCr061/Whats-App-Image-2026-07-14-at-09-25-17-1.jpg" alt="Vidarbha Tigers"></div>
-<div class="gi"><img src="https://i.ibb.co/rKWz9nyt/Whats-App-Image-2026-07-14-at-09-25-16.jpg" alt="Vidarbha Tigers"></div>
-</div>
-<p style="color:#888;margin-top:14px">#TheVidarbhaTigers #RideWithTigers #OneTribeOneRoar</p>
-<a class="btn primary" style="display:inline-block;margin-top:16px" href="https://instagram.com" target="_blank">Follow On Instagram</a>
-</div>
-</div></section>
-
-<section class="s safe reveal"><div class="c"><div class="e" style="color:#111">Safe Riding Culture</div><h2>The Thrill Is Real.<br>Safety Comes First.</h2><div class="safegrid"><div><h3>Gear Up</h3><p>Proper riding gear. Every ride.</p></div><div><h3>Ride Responsibly</h3><p>Control, awareness and discipline.</p></div><div><h3>Follow Formation</h3><p>Ride as one organized tribe.</p></div><div><h3>Respect The Road</h3><p>Real Tigers ride responsibly.</p></div></div></div></section>
-
-<section class="s join" id="join"><div class="c grid2"><div><div class="e">Join The Tribe</div><h2>Ready To Ride With <span class="o">The Tigers?</span></h2><p>Your next adventure is one ride away. Join the tribe. Follow the code. Feel the roar.</p></div><form class="form jf" action="https://formsubmit.co/info@adcraftads.com" method="POST">
-<input type="hidden" name="_next" value="https://chat.whatsapp.com/H3VNivsa1O2L8QTgElnKKL">
-<input type="hidden" name="_subject" value="New Vidarbha Tigers Join Request">
-<input type="hidden" name="_captcha" value="false">
-<input required name="full_name" placeholder="Full Name *"><input required type="tel" name="mobile" placeholder="Mobile Number *"><input required name="city" placeholder="City *"><input required name="bike_brand" placeholder="Bike Brand *"><input required name="bike_model" placeholder="Bike Model *"><select required name="riding_experience"><option value="">Riding Experience *</option><option>Beginner</option><option>1-3 Years</option><option>3-5 Years</option><option>5+ Years</option></select><input class="full" name="instagram" placeholder="Instagram ID (Optional)"><label class="chkrow full" style="grid-column:1/-1"><input type="checkbox" required> I agree to follow the Tiger Code and safe riding guidelines.</label><button class="btn primary full" type="submit">Join The Vidarbha Tigers Community</button></form></div></section>
-
-<footer id="contact"><div class="c">
-<div class="footgrid">
-<div><div class="foot-brand"><img src="https://i.ibb.co/Gfw6RZHc/Whats-App-Image-2026-07-14-at-09-25-18-1.jpg" alt="Logo"><span style="font:20px/1 Anton">THE VIDARBHA<b class="o" style="display:block;font-size:24px">TIGERS</b></span></div><p class="foot-tag">Ride Together. Roar Together.<br>Forever Tigers.</p></div>
-<div><h4>Quick Links</h4><ul><li><a href="#">Home</a></li><li><a href="#about">About Us</a></li><li><a href="#rides">Rides</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#community">Community</a></li><li><a href="#contact">Contact</a></li></ul></div>
-<div><h4>Connect With Us</h4><div class="social"><a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a><a href="https://wa.me/910000000000" target="_blank"><i class="fa-brands fa-whatsapp"></i></a><a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a></div></div>
-<div><h4>Join Our WhatsApp Community</h4><div class="wa-box"><p>Be part of the tribe. Get ride updates, announcements and more.</p><a class="btn primary" href="https://wa.me/910000000000" target="_blank">Join Now</a></div></div>
-</div>
-<div class="bottom-line"><span>(c) 2026 The Vidarbha Tigers. All Rights Reserved.</span><span>Built for riders. Born in Vidarbha.</span></div>
-</div></footer>
-
-<button class="float open">JOIN</button>
-
-<div class="pop" id="pop"><div class="modal">
-<button class="x" id="x">x</button>
-<div class="e">Become A Tiger</div><h3>Join The Vidarbha <span class="o">Tigers Community.</span></h3>
-<p style="color:#aaa;margin:10px 0 20px">Fill in your details below to become a member of The Vidarbha Tigers.</p>
-<form class="form jf" action="https://formsubmit.co/info@adcraftads.com" method="POST">
-<input type="hidden" name="_next" value="https://chat.whatsapp.com/H3VNivsa1O2L8QTgElnKKL">
-<input type="hidden" name="_subject" value="New Vidarbha Tigers Membership Application">
-<input type="hidden" name="_captcha" value="false">
-
-<div class="fgroup"><h4>Personal Details</h4></div>
-<input required placeholder="Full Name *">
-<input required type="date" placeholder="Date of Birth *">
-<select required><option value="">Gender *</option><option>Male</option><option>Female</option><option>Other</option></select>
-<input required type="tel" placeholder="Mobile Number *">
-<input type="tel" placeholder="WhatsApp Number">
-<input type="email" placeholder="Email">
-<select><option value="">Blood Group</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select>
-<textarea class="full" rows="2" placeholder="Address"></textarea>
-
-<div class="fgroup"><h4>Emergency Contact</h4></div>
-<input placeholder="Emergency Contact Name">
-<input placeholder="Relationship">
-<input type="tel" placeholder="Emergency Contact Mobile Number" class="full">
-
-<div class="fgroup"><h4>Motorcycle Details</h4></div>
-<select><option value="">Bike Brand</option><option>KTM</option><option>Husqvarna</option><option>Bajaj</option><option>Chetak</option><option>Other</option></select>
-<input placeholder="Bike Model">
-<input placeholder="Bike Number">
-<input placeholder="Chassis Number">
-<input type="number" placeholder="Purchase Year" class="full">
-
-<div class="fgroup"><h4>Riding Experience</h4></div>
-<select class="full"><option value="">Riding Experience</option><option>Less than 1 Year</option><option>1-3 Years</option><option>3-5 Years</option><option>More than 5 Years</option></select>
-<div class="chkrow">
-<label><input type="checkbox"> Weekend Ride</label>
-<label><input type="checkbox"> Touring</label>
-<label><input type="checkbox"> Adventure</label>
-<label><input type="checkbox"> Off Road</label>
-<label><input type="checkbox"> Breakfast Ride</label>
-<label><input type="checkbox"> Track Ride</label>
+<!-- LOGIN -->
+<div id="loginScreen">
+  <div class="login-card">
+    <div class="login-logo">TVT</div>
+    <p class="login-sub">Admin — Enquiries Dashboard</p>
+    <div class="field"><label>Email</label><input type="email" id="loginEmail" placeholder="admin@example.com" autocomplete="username"/></div>
+    <div class="field"><label>Password</label><input type="password" id="loginPass" placeholder="••••••••" autocomplete="current-password"/></div>
+    <button class="btn btn-primary" id="loginBtn" type="button">Sign In</button>
+    <p class="login-err" id="loginErr"></p>
+  </div>
 </div>
 
-<div class="fgroup"><h4>Riding Gear</h4></div>
-<div class="chkrow">
-<label><input type="radio" name="helmet"> Helmet</label>
-<label><input type="radio" name="helmet"> No Helmet</label>
+<!-- DASHBOARD -->
+<div id="dashboard">
+  <div class="topbar">
+    <div class="topbar-brand">THE VIDARBHA <span>TIGERS</span> &nbsp;—&nbsp; Enquiries</div>
+    <div class="topbar-right">
+      <span id="userLabel"></span>
+      <button class="btn-sm" id="logoutBtn">Sign Out</button>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="stats-row">
+      <div class="stat"><div class="stat-num" id="stTotal">0</div><div class="stat-label">Total Enquiries</div></div>
+      <div class="stat"><div class="stat-num" id="stQuick">0</div><div class="stat-label">Quick Form</div></div>
+      <div class="stat"><div class="stat-num" id="stModal">0</div><div class="stat-label">Full Application</div></div>
+      <div class="stat"><div class="stat-num" id="stToday">0</div><div class="stat-label">Today</div></div>
+    </div>
+
+    <div class="filters">
+      <input type="text" id="searchInput" placeholder="Search name, mobile, city, bike…"/>
+      <select id="sourceFilter">
+        <option value="all">All sources</option>
+        <option value="quick_form">Quick Form</option>
+        <option value="modal_form">Full Application</option>
+      </select>
+      <input type="date" id="dateFrom"/>
+      <span class="date-sep">to</span>
+      <input type="date" id="dateTo"/>
+      <button class="clear-btn" id="clearBtn">Clear</button>
+    </div>
+
+    <div class="table-wrap">
+      <div id="loadingBox" class="state-box"><span class="spinner"></span>Loading enquiries…</div>
+      <div id="emptyBox" class="state-box" style="display:none">No enquiries match your filters.</div>
+      <table id="enquiryTable" style="display:none">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Mobile</th>
+            <th>City</th>
+            <th>Bike</th>
+            <th>Experience</th>
+            <th>Source</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </div>
 </div>
-<select class="full"><option value="">Jersey Size</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select>
 
-<div class="fgroup"><h4>Membership Payment</h4></div>
-<select><option value="">Membership Type</option><option>Annual</option><option>Lifetime</option></select>
-<select><option value="">Payment Mode</option><option>Cash</option><option>UPI</option><option>Card</option><option>Bank Transfer</option></select>
-<input placeholder="Transaction ID" class="full">
-<label class="full" style="font-size:12px;color:#999;font-weight:400;display:block;margin:4px 0">Upload Payment Screenshot</label>
-<input type="file" class="full">
-
-<div class="fgroup"><h4>Declaration</h4></div>
-<div class="chkrow" style="flex-direction:column">
-<label><input type="checkbox" required> I agree to follow all traffic rules and safety guidelines.</label>
-<label><input type="checkbox" required> I agree to receive community updates.</label>
+<!-- DETAIL POPUP -->
+<div class="detail-pop" id="detailPop">
+  <div class="detail-modal">
+    <button class="detail-close" id="detailClose">×</button>
+    <h2 id="detailName">—</h2>
+    <div class="detail-grid" id="detailGrid"></div>
+  </div>
 </div>
 
-<button class="btn primary full" style="margin-top:16px">Join The Vidarbha Tigers Community</button>
-</form>
-</div></div>
-
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>
-const pop=document.getElementById('pop');document.querySelectorAll('.open').forEach(b=>b.onclick=()=>pop.classList.add('show'));document.getElementById('x').onclick=()=>pop.classList.remove('show');pop.onclick=e=>{if(e.target===pop)pop.classList.remove('show')};
-const target=new Date('2026-07-19T07:30:00+05:30').getTime();function cd(){let x=Math.max(0,target-Date.now()),v=[Math.floor(x/864e5),Math.floor(x%864e5/36e5),Math.floor(x%36e5/6e4),Math.floor(x%6e4/1e3)];['d','h','m','ss'].forEach((id,i)=>document.getElementById(id).textContent=String(v[i]).padStart(2,'0'))}cd();setInterval(cd,1000);
-const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.1});document.querySelectorAll('.reveal').forEach(e=>ob.observe(e));
-let done=0;const st=document.querySelector('.stats');new IntersectionObserver(es=>{if(es[0].isIntersecting&&!done){done=1;document.querySelectorAll('.counter').forEach(el=>{let n=+el.dataset.n,t=performance.now();function a(now){let p=Math.min((now-t)/1400,1);el.textContent=Math.floor(n*(1-Math.pow(1-p,3))).toLocaleString()+'+';if(p<1)requestAnimationFrame(a)}requestAnimationFrame(a)})}},{threshold:.3}).observe(st);
-// Hamburger menu
-const ham=document.getElementById('ham');const navLinks=document.getElementById('navLinks');ham.onclick=()=>{ham.classList.toggle('open');navLinks.classList.toggle('active')};function closeNav(){ham.classList.remove('open');navLinks.classList.remove('active')}
-// Close nav on outside click
-document.addEventListener('click',e=>{if(!ham.contains(e.target)&&!navLinks.contains(e.target))closeNav()});
+(function(){
+  firebase.initializeApp({
+    apiKey: "AIzaSyAOJ4-YiGj521tHvoAkuXxKrhU9aDMW38Q",
+    authDomain: "naturebiotech-c043b.firebaseapp.com",
+    databaseURL: "https://naturebiotech-c043b-default-rtdb.firebaseio.com",
+    projectId: "naturebiotech-c043b",
+    storageBucket: "naturebiotech-c043b.firebasestorage.app",
+    messagingSenderId: "776538572435",
+    appId: "1:776538572435:web:29cc3fb28fee0bdcc2af66",
+    measurementId: "G-FJN1M38P33"
+  });
+  var auth = firebase.auth();
+  var db = firebase.firestore();
+  var allDocs = [];
+  var unsub = null;
+
+  // --- Elements ---
+  var loginScreen = document.getElementById('loginScreen');
+  var dashboard = document.getElementById('dashboard');
+  var loginEmail = document.getElementById('loginEmail');
+  var loginPass = document.getElementById('loginPass');
+  var loginBtn = document.getElementById('loginBtn');
+  var loginErr = document.getElementById('loginErr');
+  var logoutBtn = document.getElementById('logoutBtn');
+  var userLabel = document.getElementById('userLabel');
+  var searchInput = document.getElementById('searchInput');
+  var sourceFilter = document.getElementById('sourceFilter');
+  var dateFrom = document.getElementById('dateFrom');
+  var dateTo = document.getElementById('dateTo');
+  var clearBtn = document.getElementById('clearBtn');
+  var loadingBox = document.getElementById('loadingBox');
+  var emptyBox = document.getElementById('emptyBox');
+  var enquiryTable = document.getElementById('enquiryTable');
+  var tableBody = document.getElementById('tableBody');
+  var detailPop = document.getElementById('detailPop');
+  var detailClose = document.getElementById('detailClose');
+  var detailName = document.getElementById('detailName');
+  var detailGrid = document.getElementById('detailGrid');
+
+  // --- Auth ---
+  function doLogin(){
+    loginErr.textContent = '';
+    var e = loginEmail.value.trim(), p = loginPass.value;
+    if(!e||!p){loginErr.textContent='Enter email and password.';return;}
+    loginBtn.disabled=true; loginBtn.textContent='Signing in…';
+    auth.signInWithEmailAndPassword(e,p).catch(function(err){
+      loginErr.textContent = err.code==='auth/invalid-credential'||err.code==='auth/wrong-password'||err.code==='auth/user-not-found'
+        ? 'Incorrect email or password.' : 'Sign in failed. Try again.';
+    }).finally(function(){ loginBtn.disabled=false; loginBtn.textContent='Sign In'; });
+  }
+  loginBtn.addEventListener('click', doLogin);
+  loginPass.addEventListener('keydown', function(e){ if(e.key==='Enter') doLogin(); });
+  loginEmail.addEventListener('keydown', function(e){ if(e.key==='Enter') doLogin(); });
+  logoutBtn.addEventListener('click', function(){ auth.signOut(); });
+
+  auth.onAuthStateChanged(function(user){
+    if(user){
+      loginScreen.style.display='none';
+      dashboard.style.display='block';
+      userLabel.textContent = user.email;
+      loadEnquiries();
+    } else {
+      dashboard.style.display='none';
+      loginScreen.style.display='flex';
+      if(unsub){ unsub(); unsub=null; }
+      allDocs=[];
+    }
+  });
+
+  // --- Firestore ---
+  function loadEnquiries(){
+    if(unsub) return;
+    loadingBox.style.display='block';
+    enquiryTable.style.display='none';
+    emptyBox.style.display='none';
+    unsub = db.collection('tvtennqyuiry').orderBy('submittedAt','desc').onSnapshot(function(snap){
+      allDocs = snap.docs.map(function(d){
+        var data = d.data();
+        return Object.assign({id:d.id}, data, {
+          _date: data.submittedAt && data.submittedAt.toDate ? data.submittedAt.toDate() : null
+        });
+      });
+      loadingBox.style.display='none';
+      render();
+    }, function(err){
+      loadingBox.innerHTML = 'Error loading data: '+err.message;
+    });
+  }
+
+  // --- Filtering ---
+  function matches(doc){
+    var q = searchInput.value.trim().toLowerCase();
+    if(q){
+      var hay = [doc.full_name,doc.mobile,doc.city,doc.bike_brand,doc.bike_model,doc.email,doc.instagram,doc.whatsapp].join(' ').toLowerCase();
+      if(hay.indexOf(q)===-1) return false;
+    }
+    var sf = sourceFilter.value;
+    if(sf!=='all' && doc.source!==sf) return false;
+    if(dateFrom.value){
+      var from = new Date(dateFrom.value+'T00:00:00');
+      if(!doc._date || doc._date < from) return false;
+    }
+    if(dateTo.value){
+      var to = new Date(dateTo.value+'T23:59:59');
+      if(!doc._date || doc._date > to) return false;
+    }
+    return true;
+  }
+
+  function fmtDate(d){
+    if(!d) return '—';
+    return d.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'})
+      + '<div style="color:#999;font-size:11px">' + d.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'}) + '</div>';
+  }
+
+  function esc(s){ return String(s||'').replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]}); }
+
+  // --- Render ---
+  function render(){
+    var today = new Date(); today.setHours(0,0,0,0);
+    var counts = {quick_form:0,modal_form:0,today:0};
+    allDocs.forEach(function(d){
+      if(d.source==='quick_form') counts.quick_form++;
+      if(d.source==='modal_form') counts.modal_form++;
+      if(d._date && d._date >= today) counts.today++;
+    });
+    document.getElementById('stTotal').textContent = allDocs.length;
+    document.getElementById('stQuick').textContent = counts.quick_form;
+    document.getElementById('stModal').textContent = counts.modal_form;
+    document.getElementById('stToday').textContent = counts.today;
+
+    var filtered = allDocs.filter(matches);
+    if(filtered.length===0){
+      enquiryTable.style.display='none';
+      emptyBox.style.display='block';
+      return;
+    }
+    emptyBox.style.display='none';
+    enquiryTable.style.display='table';
+    tableBody.innerHTML='';
+    filtered.forEach(function(doc){
+      var tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td style="white-space:nowrap;color:#888;font-size:12px">'+fmtDate(doc._date)+'</td>'+
+        '<td><span class="name-bold">'+esc(doc.full_name||'—')+'</span>'+(doc.email?'<div class="sub-text">'+esc(doc.email)+'</div>':'')+'</td>'+
+        '<td>'+esc(doc.mobile||'—')+'</td>'+
+        '<td>'+esc(doc.city||'—')+'</td>'+
+        '<td>'+esc((doc.bike_brand||'')+(doc.bike_model?' '+doc.bike_model:'') || '—')+'</td>'+
+        '<td>'+esc(doc.riding_experience||'—')+'</td>'+
+        '<td><span class="badge '+(doc.source==='modal_form'?'badge-modal':'badge-quick')+'">'+(doc.source==='modal_form'?'Full App':'Quick')+'</span></td>'+
+        '<td><button class="btn" style="font-size:12px;padding:6px 12px" data-id="'+doc.id+'">View</button></td>';
+      tableBody.appendChild(tr);
+    });
+
+    // View buttons
+    tableBody.querySelectorAll('[data-id]').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var doc = allDocs.find(function(d){return d.id===btn.dataset.id;});
+        if(doc) openDetail(doc);
+      });
+    });
+  }
+
+  // --- Detail popup ---
+  function openDetail(doc){
+    detailName.textContent = doc.full_name || 'Unknown';
+    detailGrid.innerHTML = '';
+
+    function row(key, val, full){
+      if(!val) return;
+      var d = document.createElement('div');
+      d.className = 'detail-row' + (full?' detail-section-row':'');
+      if(full) d.style.gridColumn='1/-1';
+      d.innerHTML = '<div class="detail-key">'+key+'</div><div class="detail-val">'+esc(val)+'</div>';
+      detailGrid.appendChild(d);
+    }
+    function section(title){
+      var d = document.createElement('div');
+      d.className = 'detail-section';
+      d.textContent = title;
+      detailGrid.appendChild(d);
+    }
+
+    var dateStr = doc._date ? doc._date.toLocaleString('en-IN') : '—';
+    section('Submission Info');
+    row('Submitted', dateStr, true);
+    row('Source', doc.source==='modal_form'?'Full Application':'Quick Form', true);
+
+    section('Personal');
+    row('Full Name', doc.full_name);
+    row('Mobile', doc.mobile);
+    row('WhatsApp', doc.whatsapp);
+    row('Email', doc.email);
+    row('Date of Birth', doc.dob);
+    row('Gender', doc.gender);
+    row('City', doc.city);
+    row('Address', doc.address, true);
+
+    section('Emergency Contact');
+    row('Name', doc.emergency_contact);
+    row('Mobile', doc.emergency_mobile);
+
+    section('Bike Details');
+    row('Brand', doc.bike_brand);
+    row('Model', doc.bike_model);
+    row('Bike Number', doc.bike_number);
+    row('Chassis', doc.chassis_number);
+    row('Purchase Year', doc.purchase_year);
+
+    section('Riding Info');
+    row('Experience', doc.riding_experience);
+    row('Ride Types', doc.ride_types);
+    row('Jersey Size', doc.jersey_size);
+    row('Instagram', doc.instagram);
+
+    section('Membership');
+    row('Membership Type', doc.membership_type);
+    row('Payment Mode', doc.payment_mode);
+    row('Transaction ID', doc.transaction_id);
+
+    detailPop.classList.add('show');
+  }
+
+  detailClose.addEventListener('click',function(){ detailPop.classList.remove('show'); });
+  detailPop.addEventListener('click',function(e){ if(e.target===detailPop) detailPop.classList.remove('show'); });
+
+  // --- Filter events ---
+  searchInput.addEventListener('input', render);
+  sourceFilter.addEventListener('change', render);
+  dateFrom.addEventListener('change', render);
+  dateTo.addEventListener('change', render);
+  clearBtn.addEventListener('click',function(){
+    searchInput.value=''; sourceFilter.value='all'; dateFrom.value=''; dateTo.value=''; render();
+  });
+})();
 </script>
-</body></html>
+</body>
+</html>
