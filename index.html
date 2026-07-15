@@ -318,32 +318,15 @@ function setupPreview(inputEl, previewEl) {
   });
 }
 
-// Save + email + redirect
+// Save to Firestore then redirect
 function saveAndRedirect(data, btnEl, errEl) {
   btnEl.disabled = true;
   btnEl.innerHTML = '<span style="display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid rgba(17,17,17,0.3);border-top-color:#111;animation:tvt-spin .7s linear infinite;vertical-align:-3px;margin-right:8px"></span>Submitting...';
   if (errEl) errEl.textContent = '';
 
-  var fsWrite = db.collection('tvtennqyuiry').add(Object.assign({}, data, {
+  db.collection('tvtennqyuiry').add(Object.assign({}, data, {
     submittedAt: firebase.firestore.FieldValue.serverTimestamp()
-  })).catch(function(e) { console.error('Firestore error:', e); });
-
-  // Email payload — strip base64 blobs to keep size small
-  var emailPayload = {};
-  Object.keys(data).forEach(function(k) {
-    if (k !== 'dl_copy_base64' && k !== 'payment_screenshot_base64') emailPayload[k] = data[k];
-  });
-  emailPayload._subject = data.source === 'modal_form'
-    ? 'New TVT Full Application — ' + (data.full_name || '')
-    : 'New TVT Quick Join — ' + (data.full_name || '');
-
-  var fsEmail = fetch('https://formsubmit.co/ajax/info@adcraftads.com', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify(emailPayload)
-  }).catch(function(e) { console.error('FormSubmit error:', e); });
-
-  Promise.all([fsWrite, fsEmail]).finally(function() {
+  })).catch(function(e) { console.error('Firestore error:', e); }).finally(function() {
     window.location.href = WA_REDIRECT;
   });
 }
