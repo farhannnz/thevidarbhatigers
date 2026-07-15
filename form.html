@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Join The Vidarbha Tigers</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--o:#ff6500;--b:#050505;--l:#292929}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--b);color:#fff;font:15px/1.6 Montserrat,sans-serif;min-height:100vh}
+a{text-decoration:none;color:inherit}
+
+.page-header{background:#0a0a0a;border-bottom:2px solid var(--o);padding:18px 24px;display:flex;align-items:center;gap:14px}
+.page-header img{width:42px;height:42px;object-fit:cover;border-radius:8px;border:1px solid #ff650055}
+.page-header .brand-text{font:22px/1 Anton}
+.page-header .brand-text b{display:block;color:var(--o);font-size:26px}
+
+.page-wrap{max-width:760px;margin:0 auto;padding:36px 20px 60px}
+.page-title{font:14px/1 Montserrat;color:var(--o);font-weight:900;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.page-heading{font:clamp(28px,6vw,42px)/1.05 Anton;text-transform:uppercase;margin-bottom:8px}
+.page-sub{color:#aaa;font-size:14px;margin-bottom:32px}
+
+.form{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.form input,.form select,.form textarea{background:#111;border:1px solid #333;color:#fff;padding:16px;font-family:inherit;font-size:14px;width:100%;border-radius:6px;transition:border-color .2s}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--o)}
+.form input[type=file]{padding:12px;cursor:pointer}
+.full{grid-column:1/-1}
+.fgroup{grid-column:1/-1;margin-top:10px}
+.fgroup h4{font:13px Anton;letter-spacing:1px;color:var(--o);text-transform:uppercase;border-left:3px solid var(--o);padding-left:9px;margin:18px 0 10px}
+.fgroup:first-of-type h4{margin-top:4px}
+.chkrow{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px 20px;margin:4px 0}
+.chkrow label{display:flex;align-items:center;gap:7px;font-size:13px;color:#ccc;font-weight:400;cursor:pointer}
+.chkrow input{width:auto;accent-color:var(--o)}
+
+.file-label{grid-column:1/-1;font-size:12px;color:#999;font-weight:600;display:block;margin-bottom:4px}
+.file-preview{margin-top:6px;min-height:4px}
+.file-preview img{max-width:160px;max-height:110px;border-radius:6px;border:1px solid #444}
+
+.qr-box{grid-column:1/-1;background:#111;border:1px solid #333;border-radius:8px;padding:20px;text-align:center}
+.qr-box p{font-size:13px;color:#aaa;margin-bottom:12px}
+.qr-box img{width:200px;height:200px;object-fit:contain;border-radius:8px;background:#fff;padding:8px}
+.qr-box small{display:block;font-size:11px;color:#777;margin-top:10px}
+
+.btn{border:1px solid #555;background:transparent;color:#fff;padding:15px 24px;font-weight:900;text-transform:uppercase;cursor:pointer;transition:.25s;font-family:inherit;font-size:14px;border-radius:6px}
+.btn:hover{border-color:var(--o)}
+.btn.primary{background:var(--o);border-color:var(--o)}
+.btn.primary:hover{background:#e05a00}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+
+.form-error{grid-column:1/-1;color:#ff6666;font-size:13px;min-height:16px;margin-top:4px}
+
+.success-screen{display:none;text-align:center;padding:60px 20px}
+.success-screen .check{width:70px;height:70px;border-radius:50%;background:var(--o);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:32px}
+.success-screen h2{font:32px Anton;margin-bottom:10px}
+.success-screen p{color:#aaa;margin-bottom:24px}
+
+@media(max-width:540px){
+  .form{grid-template-columns:1fr}
+  .full,.fgroup,.qr-box,.form-error,.chkrow,.file-label{grid-column:auto}
+  .page-wrap{padding:24px 16px 50px}
+}
+@keyframes tvt-spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <img src="https://i.ibb.co/Gfw6RZHc/Whats-App-Image-2026-07-14-at-09-25-18-1.jpg" alt="TVT Logo">
+  <div class="brand-text">THE VIDARBHA<b>TIGERS</b></div>
+</div>
+
+<div class="page-wrap">
+  <div id="formSection">
+    <div class="page-title">Become A Member</div>
+    <h1 class="page-heading">Join The Vidarbha <span style="color:var(--o)">Tigers.</span></h1>
+    <p class="page-sub">Fill in your details below to become a member of The Vidarbha Tigers community.</p>
+
+    <form class="form" id="joinForm">
+
+      <div class="fgroup"><h4>Personal Details</h4></div>
+      <input required id="mf_name" placeholder="Full Name *">
+      <div style="position:relative">
+        <label style="font-size:11px;color:#888;font-weight:600;display:block;margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">Date of Birth *</label>
+        <input required type="date" id="mf_dob" style="background:#111;border:1px solid #333;color:#fff;padding:16px;font-family:inherit;width:100%;border-radius:6px">
+      </div>
+      <select required id="mf_gender"><option value="">Gender *</option><option>Male</option><option>Female</option><option>Other</option></select>
+      <input required type="tel" id="mf_mobile" placeholder="Mobile Number *">
+      <input type="tel" id="mf_whatsapp" placeholder="WhatsApp Number">
+      <input type="email" id="mf_email" placeholder="Email">
+      <select id="mf_blood"><option value="">Blood Group</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select>
+      <textarea class="full" id="mf_address" rows="2" placeholder="Address"></textarea>
+
+      <div class="fgroup"><h4>Emergency Contact</h4></div>
+      <input id="mf_ec_name" placeholder="Emergency Contact Name">
+      <input id="mf_ec_rel" placeholder="Relationship">
+      <input required type="tel" id="mf_ec_mobile" placeholder="Emergency Contact Number *" class="full">
+
+      <div class="fgroup"><h4>Driving License</h4></div>
+      <input required id="mf_dl_number" placeholder="Driving License Number *" class="full">
+      <div class="full">
+        <label class="file-label">DL Validity Date *</label>
+        <input required type="date" id="mf_dl_validity" style="background:#111;border:1px solid #333;color:#fff;padding:16px;font-family:inherit;width:100%;border-radius:6px">
+      </div>
+      <div class="full">
+        <label class="file-label">Upload Driving License Copy * (PDF / JPG / PNG, max 10MB)</label>
+        <input required type="file" id="mf_dl_file" accept=".pdf,.jpg,.jpeg,.png" class="full">
+        <div class="file-preview" id="mf_dl_preview"></div>
+      </div>
+
+      <div class="fgroup"><h4>Motorcycle Details</h4></div>
+      <select id="mf_bike_brand"><option value="">Bike Brand</option><option>KTM</option><option>Husqvarna</option><option>Bajaj</option><option>Chetak</option><option>Other</option></select>
+      <input id="mf_bike_model" placeholder="Bike Model">
+      <input id="mf_bike_number" placeholder="Bike Number">
+      <input id="mf_chassis" placeholder="Chassis Number">
+      <input type="number" id="mf_purchase_year" placeholder="Purchase Year" class="full">
+
+      <div class="fgroup"><h4>Riding Experience</h4></div>
+      <select class="full" id="mf_exp"><option value="">Riding Experience</option><option>Less than 1 Year</option><option>1-3 Years</option><option>3-5 Years</option><option>More than 5 Years</option></select>
+      <div class="chkrow" id="mf_ride_types">
+        <label><input type="checkbox" value="Weekend Ride"> Weekend Ride</label>
+        <label><input type="checkbox" value="Touring"> Touring</label>
+        <label><input type="checkbox" value="Adventure"> Adventure</label>
+        <label><input type="checkbox" value="Off Road"> Off Road</label>
+        <label><input type="checkbox" value="Breakfast Ride"> Breakfast Ride</label>
+        <label><input type="checkbox" value="Track Ride"> Track Ride</label>
+      </div>
+
+      <div class="fgroup"><h4>Riding Gear</h4></div>
+      <div class="chkrow">
+        <label><input type="radio" name="mf_helmet" value="Helmet"> Helmet</label>
+        <label><input type="radio" name="mf_helmet" value="No Helmet"> No Helmet</label>
+      </div>
+      <select class="full" id="mf_jersey"><option value="">Jersey Size</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select>
+
+      <div class="fgroup"><h4>Membership Payment</h4></div>
+      <select id="mf_mem_type"><option value="">Membership Type</option><option>Annual</option><option>Lifetime</option></select>
+      <select id="mf_pay_mode"><option value="">Payment Mode</option><option>Cash</option><option>UPI</option><option>Card</option><option>Bank Transfer</option></select>
+      <div class="qr-box">
+        <p>Scan to Pay — The Vidarbha Tigers</p>
+        <img src="https://i.ibb.co/pBGTfSWm/Whats-App-Image-2026-07-15-at-14-14-30-1.jpg" alt="UPI QR Code">
+        <small>Pay via UPI and enter your Transaction ID below</small>
+      </div>
+      <input id="mf_txn_id" placeholder="Transaction ID" class="full">
+      <div class="full">
+        <label class="file-label">Upload Payment Screenshot (JPG / PNG, max 10MB)</label>
+        <input type="file" id="mf_pay_ss" accept=".jpg,.jpeg,.png">
+        <div class="file-preview" id="mf_pay_preview"></div>
+      </div>
+
+      <div class="fgroup"><h4>Declaration</h4></div>
+      <div class="chkrow" style="flex-direction:column">
+        <label><input type="checkbox" required> I agree to follow all traffic rules and safety guidelines.</label>
+        <label><input type="checkbox" required> I agree to receive community updates.</label>
+      </div>
+
+      <div class="form-error" id="mf_error"></div>
+      <button class="btn primary full" type="submit" id="mf_submit">Join The Vidarbha Tigers Community</button>
+    </form>
+  </div>
+
+  <div class="success-screen" id="successScreen">
+    <div class="check">✓</div>
+    <h2>You're A Tiger Now!</h2>
+    <p>Your application has been submitted. You'll be redirected to the WhatsApp community shortly.</p>
+    <p style="color:#888;font-size:13px;margin-top:8px">Redirecting in <span id="countdownNum">3</span>s…</p>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+(function(){
+  var fbApp = firebase.apps && firebase.apps.length ? firebase.apps[0] : firebase.initializeApp({
+    apiKey: "AIzaSyAOJ4-YiGj521tHvoAkuXxKrhU9aDMW38Q",
+    authDomain: "naturebiotech-c043b.firebaseapp.com",
+    databaseURL: "https://naturebiotech-c043b-default-rtdb.firebaseio.com",
+    projectId: "naturebiotech-c043b",
+    storageBucket: "naturebiotech-c043b.firebasestorage.app",
+    messagingSenderId: "776538572435",
+    appId: "1:776538572435:web:29cc3fb28fee0bdcc2af66",
+    measurementId: "G-FJN1M38P33"
+  });
+  var db = firebase.firestore(fbApp);
+  var WA_REDIRECT = 'https://chat.whatsapp.com/H3VNivsa1O2L8QTgElnKKL';
+
+  function fileToBase64(file){
+    return new Promise(function(resolve,reject){
+      if(!file){resolve(null);return;}
+      if(file.size>10*1024*1024){reject(new Error('File too large. Max 10MB.'));return;}
+      var r=new FileReader();
+      r.onload=function(e){resolve(e.target.result);};
+      r.onerror=function(){reject(new Error('Failed to read file.'));};
+      r.readAsDataURL(file);
+    });
+  }
+
+  function setupPreview(inp,prev){
+    inp.addEventListener('change',function(){
+      var f=inp.files[0];
+      if(!f){prev.innerHTML='';return;}
+      if(f.type==='application/pdf'){
+        prev.innerHTML='<span style="color:#aaa;font-size:12px">📄 '+f.name+'</span>';
+      } else {
+        var url=URL.createObjectURL(f);
+        prev.innerHTML='<img src="'+url+'">';
+      }
+    });
+  }
+
+  setupPreview(document.getElementById('mf_dl_file'), document.getElementById('mf_dl_preview'));
+  setupPreview(document.getElementById('mf_pay_ss'), document.getElementById('mf_pay_preview'));
+
+  document.getElementById('joinForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var errEl = document.getElementById('mf_error');
+    var submitBtn = document.getElementById('mf_submit');
+    errEl.textContent = '';
+
+    var dlFile = document.getElementById('mf_dl_file').files[0];
+    var payFile = document.getElementById('mf_pay_ss').files[0];
+    if(!dlFile){errEl.textContent='Please upload your Driving License copy.';return;}
+
+    var rideTypes=[];
+    document.querySelectorAll('#mf_ride_types input:checked').forEach(function(c){rideTypes.push(c.value);});
+    var helmetEl = document.querySelector('input[name="mf_helmet"]:checked');
+
+    submitBtn.disabled=true;
+    submitBtn.innerHTML='<span style="display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid rgba(17,17,17,0.3);border-top-color:#111;animation:tvt-spin .7s linear infinite;vertical-align:-3px;margin-right:8px"></span>Submitting...';
+
+    Promise.all([fileToBase64(dlFile), fileToBase64(payFile)]).then(function(res){
+      var data = {
+        source: 'modal_form',
+        full_name: document.getElementById('mf_name').value.trim(),
+        dob: document.getElementById('mf_dob').value,
+        gender: document.getElementById('mf_gender').value,
+        mobile: document.getElementById('mf_mobile').value.trim(),
+        whatsapp: document.getElementById('mf_whatsapp').value.trim(),
+        email: document.getElementById('mf_email').value.trim(),
+        blood_group: document.getElementById('mf_blood').value,
+        address: document.getElementById('mf_address').value.trim(),
+        emergency_contact_name: document.getElementById('mf_ec_name').value.trim(),
+        emergency_contact_relationship: document.getElementById('mf_ec_rel').value.trim(),
+        emergency_contact_mobile: document.getElementById('mf_ec_mobile').value.trim(),
+        dl_number: document.getElementById('mf_dl_number').value.trim(),
+        dl_validity: document.getElementById('mf_dl_validity').value,
+        dl_copy_base64: res[0] || '',
+        dl_copy_filename: dlFile ? dlFile.name : '',
+        bike_brand: document.getElementById('mf_bike_brand').value,
+        bike_model: document.getElementById('mf_bike_model').value.trim(),
+        bike_number: document.getElementById('mf_bike_number').value.trim(),
+        chassis_number: document.getElementById('mf_chassis').value.trim(),
+        purchase_year: document.getElementById('mf_purchase_year').value,
+        riding_experience: document.getElementById('mf_exp').value,
+        ride_types: rideTypes.join(', '),
+        helmet: helmetEl ? helmetEl.value : '',
+        jersey_size: document.getElementById('mf_jersey').value,
+        membership_type: document.getElementById('mf_mem_type').value,
+        payment_mode: document.getElementById('mf_pay_mode').value,
+        transaction_id: document.getElementById('mf_txn_id').value.trim(),
+        payment_screenshot_base64: res[1] || '',
+        payment_screenshot_filename: payFile ? payFile.name : '',
+        submittedAt: firebase.firestore.FieldValue.serverTimestamp()
+      };
+
+      // Email (no base64 blobs)
+      var emailPayload = {};
+      Object.keys(data).forEach(function(k){
+        if(k!=='dl_copy_base64'&&k!=='payment_screenshot_base64'&&k!=='submittedAt') emailPayload[k]=data[k];
+      });
+      emailPayload._subject = 'New TVT Full Application — '+data.full_name;
+
+      var fsWrite = db.collection('tvtennqyuiry').add(data).catch(function(e){console.error(e);});
+      var fsEmail = fetch('https://formsubmit.co/ajax/info@adcraftads.com',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify(emailPayload)
+      }).catch(function(e){console.error(e);});
+
+      Promise.all([fsWrite,fsEmail]).finally(function(){
+        document.getElementById('formSection').style.display='none';
+        document.getElementById('successScreen').style.display='block';
+        var n=3;
+        document.getElementById('countdownNum').textContent=n;
+        var iv=setInterval(function(){
+          n--;
+          document.getElementById('countdownNum').textContent=n;
+          if(n<=0){clearInterval(iv);window.location.href=WA_REDIRECT;}
+        },1000);
+      });
+    }).catch(function(err){
+      submitBtn.disabled=false;
+      submitBtn.innerHTML='Join The Vidarbha Tigers Community';
+      errEl.textContent=err.message;
+    });
+  });
+})();
+</script>
+<style>@keyframes tvt-spin{to{transform:rotate(360deg)}}</style>
+</body>
+</html>
