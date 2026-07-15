@@ -247,17 +247,24 @@ tbody td{padding:11px 14px;font-size:13px;vertical-align:top}
     loadingBox.style.display='block';
     enquiryTable.style.display='none';
     emptyBox.style.display='none';
-    unsub = db.collection('tvtennqyuiry').orderBy('submittedAt','desc').onSnapshot(function(snap){
+    unsub = db.collection('tvtennqyuiry').onSnapshot(function(snap){
       allDocs = snap.docs.map(function(d){
         var data = d.data();
         return Object.assign({id:d.id}, data, {
           _date: data.submittedAt && data.submittedAt.toDate ? data.submittedAt.toDate() : null
         });
       });
+      // Sort client-side newest first (no index needed)
+      allDocs.sort(function(a,b){
+        if(!a._date && !b._date) return 0;
+        if(!a._date) return 1;
+        if(!b._date) return -1;
+        return b._date - a._date;
+      });
       loadingBox.style.display='none';
       render();
     }, function(err){
-      loadingBox.innerHTML = 'Error loading data: '+err.message;
+      loadingBox.innerHTML = '<span style="color:#e05">Error: '+err.message+'</span>';
     });
   }
 
