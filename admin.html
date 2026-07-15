@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>TVT Enquiries — Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--o:#ff6500;--b:#050505;--ink:#10131a;--sub:#5b6270;--paper:#f5f6fa;--card:#fff;--line:#e3e6ee;--line-s:#c9ceda;--brand:#ff6500}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--paper);color:var(--ink);font:14px/1.6 Inter,sans-serif;min-height:100vh}
+a{text-decoration:none;color:inherit}
+
+/* LOGIN */
+#loginScreen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:var(--b)}
+.login-card{width:100%;max-width:360px;background:#111;border:1px solid #333;border-radius:14px;padding:34px 30px;box-shadow:0 12px 32px rgba(0,0,0,.4)}
+.login-logo{font:32px Anton;color:var(--o);margin-bottom:4px}
+.login-sub{font-size:13px;color:#888;margin-bottom:24px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:11px;font-weight:700;color:#888;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em}
+.field input{width:100%;font:14px Inter,sans-serif;padding:10px 12px;border:1px solid #333;border-radius:8px;background:#1a1a1a;color:#fff}
+.field input:focus{outline:none;border-color:var(--o);box-shadow:0 0 0 3px rgba(255,101,0,.18)}
+.login-err{font-size:13px;color:#e05;margin:10px 0 0;min-height:16px}
+.btn{font:13px/1 Inter,sans-serif;font-weight:700;border-radius:8px;border:1px solid var(--line-s);background:var(--card);color:var(--ink);padding:9px 16px;cursor:pointer;transition:.15s}
+.btn:hover{background:var(--paper)}
+.btn-primary{background:var(--o);border-color:var(--o);color:#fff;width:100%;padding:12px}
+.btn-primary:hover{background:#e05a00}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+
+/* DASHBOARD */
+#dashboard{display:none}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;background:var(--b);border-bottom:2px solid var(--o);position:sticky;top:0;z-index:10}
+.topbar-brand{font:22px Anton;color:#fff;display:flex;align-items:center;gap:10px}
+.topbar-brand span{color:var(--o)}
+.topbar-right{display:flex;align-items:center;gap:12px;font-size:13px;color:#aaa}
+.btn-sm{font-size:12px;padding:7px 14px;border-radius:6px;border:1px solid #444;background:transparent;color:#ccc;cursor:pointer}
+.btn-sm:hover{border-color:var(--o);color:#fff}
+
+.wrap{max-width:1280px;margin:0 auto;padding:24px 20px 60px}
+
+/* STATS */
+.stats-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 20px;flex:1;min-width:130px}
+.stat-num{font:32px Anton;color:var(--o)}
+.stat-label{font-size:11px;color:var(--sub);margin-top:2px;text-transform:uppercase;letter-spacing:.04em}
+
+/* FILTERS */
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:16px}
+.filters input[type=text],.filters input[type=date],.filters select{font:13px Inter,sans-serif;padding:8px 10px;border:1px solid var(--line-s);border-radius:7px;background:var(--paper);color:var(--ink)}
+.filters input[type=text]{flex:1;min-width:200px}
+.filters input:focus,.filters select:focus{outline:none;border-color:var(--o)}
+.date-sep{font-size:12px;color:var(--sub)}
+.clear-btn{font-size:12px;color:var(--o);background:none;border:none;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+
+/* TABLE */
+.table-wrap{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+table{width:100%;border-collapse:collapse}
+thead th{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--sub);font-weight:700;padding:11px 14px;border-bottom:1px solid var(--line);background:#fafbfd;text-align:left;white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--line)}
+tbody tr:last-child{border:none}
+tbody tr:hover{background:#fafbfd}
+tbody td{padding:11px 14px;font-size:13px;vertical-align:top}
+.badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.04em}
+.badge-quick{background:#fff3e8;color:#c05000}
+.badge-modal{background:#e8f0ff;color:#1357dc}
+.name-bold{font-weight:700}
+.sub-text{color:var(--sub);font-size:12px;margin-top:2px}
+
+/* DETAIL MODAL */
+.detail-pop{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.7);display:none;place-items:center;padding:20px}
+.detail-pop.show{display:grid}
+.detail-modal{width:min(700px,100%);max-height:90vh;overflow-y:auto;background:#fff;border-radius:14px;padding:32px;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.15)}
+.detail-modal h2{font:28px Anton;margin-bottom:18px}
+.detail-close{position:sticky;float:right;top:0;background:#fff;border:1px solid var(--line-s);border-radius:50%;width:34px;height:34px;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 20px}
+.detail-row{padding:8px 0;border-bottom:1px solid var(--line)}
+.detail-row:last-child{border:none}
+.detail-key{font-size:11px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.detail-val{font-size:13.5px;color:var(--ink);word-break:break-word}
+.detail-section{grid-column:1/-1;font:14px Anton;letter-spacing:1px;color:var(--o);text-transform:uppercase;border-left:3px solid var(--o);padding-left:10px;margin:12px 0 4px}
+
+/* EMPTY / LOADING */
+.state-box{padding:60px 20px;text-align:center;color:var(--sub);font-size:14px}
+.spinner{width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,101,0,.2);border-top-color:var(--o);animation:spin .7s linear infinite;display:inline-block;vertical-align:-3px;margin-right:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media(max-width:700px){
+  .wrap{padding:16px 12px 40px}
+  .table-wrap{overflow-x:auto}
+  table{min-width:680px}
+  .detail-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginScreen">
+  <div class="login-card">
+    <div class="login-logo">TVT</div>
+    <p class="login-sub">Admin — Enquiries Dashboard</p>
+    <div class="field"><label>Email</label><input type="email" id="loginEmail" placeholder="admin@example.com" autocomplete="username"/></div>
+    <div class="field"><label>Password</label><input type="password" id="loginPass" placeholder="••••••••" autocomplete="current-password"/></div>
+    <button class="btn btn-primary" id="loginBtn" type="button">Sign In</button>
+    <p class="login-err" id="loginErr"></p>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard">
+  <div class="topbar">
+    <div class="topbar-brand">THE VIDARBHA <span>TIGERS</span> &nbsp;—&nbsp; Enquiries</div>
+    <div class="topbar-right">
+      <span id="userLabel"></span>
+      <button class="btn-sm" id="logoutBtn">Sign Out</button>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="stats-row">
+      <div class="stat"><div class="stat-num" id="stTotal">0</div><div class="stat-label">Total Enquiries</div></div>
+      <div class="stat"><div class="stat-num" id="stQuick">0</div><div class="stat-label">Quick Form</div></div>
+      <div class="stat"><div class="stat-num" id="stModal">0</div><div class="stat-label">Full Application</div></div>
+      <div class="stat"><div class="stat-num" id="stToday">0</div><div class="stat-label">Today</div></div>
+    </div>
+
+    <div class="filters">
+      <input type="text" id="searchInput" placeholder="Search name, mobile, city, bike…"/>
+      <select id="sourceFilter">
+        <option value="all">All sources</option>
+        <option value="quick_form">Quick Form</option>
+        <option value="modal_form">Full Application</option>
+      </select>
+      <input type="date" id="dateFrom"/>
+      <span class="date-sep">to</span>
+      <input type="date" id="dateTo"/>
+      <button class="clear-btn" id="clearBtn">Clear</button>
+    </div>
+
+    <div class="table-wrap">
+      <div id="loadingBox" class="state-box"><span class="spinner"></span>Loading enquiries…</div>
+      <div id="emptyBox" class="state-box" style="display:none">No enquiries match your filters.</div>
+      <table id="enquiryTable" style="display:none">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Mobile</th>
+            <th>City</th>
+            <th>Bike</th>
+            <th>Experience</th>
+            <th>Source</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- DETAIL POPUP -->
+<div class="detail-pop" id="detailPop">
+  <div class="detail-modal">
+    <button class="detail-close" id="detailClose">×</button>
+    <h2 id="detailName">—</h2>
+    <div class="detail-grid" id="detailGrid"></div>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+(function(){
+  firebase.initializeApp({
+    apiKey: "AIzaSyAOJ4-YiGj521tHvoAkuXxKrhU9aDMW38Q",
+    authDomain: "naturebiotech-c043b.firebaseapp.com",
+    databaseURL: "https://naturebiotech-c043b-default-rtdb.firebaseio.com",
+    projectId: "naturebiotech-c043b",
+    storageBucket: "naturebiotech-c043b.firebasestorage.app",
+    messagingSenderId: "776538572435",
+    appId: "1:776538572435:web:29cc3fb28fee0bdcc2af66",
+    measurementId: "G-FJN1M38P33"
+  });
+  var auth = firebase.auth();
+  var db = firebase.firestore();
+  var allDocs = [];
+  var unsub = null;
+
+  // --- Elements ---
+  var loginScreen = document.getElementById('loginScreen');
+  var dashboard = document.getElementById('dashboard');
+  var loginEmail = document.getElementById('loginEmail');
+  var loginPass = document.getElementById('loginPass');
+  var loginBtn = document.getElementById('loginBtn');
+  var loginErr = document.getElementById('loginErr');
+  var logoutBtn = document.getElementById('logoutBtn');
+  var userLabel = document.getElementById('userLabel');
+  var searchInput = document.getElementById('searchInput');
+  var sourceFilter = document.getElementById('sourceFilter');
+  var dateFrom = document.getElementById('dateFrom');
+  var dateTo = document.getElementById('dateTo');
+  var clearBtn = document.getElementById('clearBtn');
+  var loadingBox = document.getElementById('loadingBox');
+  var emptyBox = document.getElementById('emptyBox');
+  var enquiryTable = document.getElementById('enquiryTable');
+  var tableBody = document.getElementById('tableBody');
+  var detailPop = document.getElementById('detailPop');
+  var detailClose = document.getElementById('detailClose');
+  var detailName = document.getElementById('detailName');
+  var detailGrid = document.getElementById('detailGrid');
+
+  // --- Auth ---
+  function doLogin(){
+    loginErr.textContent = '';
+    var e = loginEmail.value.trim(), p = loginPass.value;
+    if(!e||!p){loginErr.textContent='Enter email and password.';return;}
+    loginBtn.disabled=true; loginBtn.textContent='Signing in…';
+    auth.signInWithEmailAndPassword(e,p).catch(function(err){
+      loginErr.textContent = err.code==='auth/invalid-credential'||err.code==='auth/wrong-password'||err.code==='auth/user-not-found'
+        ? 'Incorrect email or password.' : 'Sign in failed. Try again.';
+    }).finally(function(){ loginBtn.disabled=false; loginBtn.textContent='Sign In'; });
+  }
+  loginBtn.addEventListener('click', doLogin);
+  loginPass.addEventListener('keydown', function(e){ if(e.key==='Enter') doLogin(); });
+  loginEmail.addEventListener('keydown', function(e){ if(e.key==='Enter') doLogin(); });
+  logoutBtn.addEventListener('click', function(){ auth.signOut(); });
+
+  auth.onAuthStateChanged(function(user){
+    if(user){
+      loginScreen.style.display='none';
+      dashboard.style.display='block';
+      userLabel.textContent = user.email;
+      loadEnquiries();
+    } else {
+      dashboard.style.display='none';
+      loginScreen.style.display='flex';
+      if(unsub){ unsub(); unsub=null; }
+      allDocs=[];
+    }
+  });
+
+  // --- Firestore ---
+  function loadEnquiries(){
+    if(unsub) return;
+    loadingBox.style.display='block';
+    enquiryTable.style.display='none';
+    emptyBox.style.display='none';
+    unsub = db.collection('tvtennqyuiry').orderBy('submittedAt','desc').onSnapshot(function(snap){
+      allDocs = snap.docs.map(function(d){
+        var data = d.data();
+        return Object.assign({id:d.id}, data, {
+          _date: data.submittedAt && data.submittedAt.toDate ? data.submittedAt.toDate() : null
+        });
+      });
+      loadingBox.style.display='none';
+      render();
+    }, function(err){
+      loadingBox.innerHTML = 'Error loading data: '+err.message;
+    });
+  }
+
+  // --- Filtering ---
+  function matches(doc){
+    var q = searchInput.value.trim().toLowerCase();
+    if(q){
+      var hay = [doc.full_name,doc.mobile,doc.city,doc.bike_brand,doc.bike_model,doc.email,doc.instagram,doc.whatsapp].join(' ').toLowerCase();
+      if(hay.indexOf(q)===-1) return false;
+    }
+    var sf = sourceFilter.value;
+    if(sf!=='all' && doc.source!==sf) return false;
+    if(dateFrom.value){
+      var from = new Date(dateFrom.value+'T00:00:00');
+      if(!doc._date || doc._date < from) return false;
+    }
+    if(dateTo.value){
+      var to = new Date(dateTo.value+'T23:59:59');
+      if(!doc._date || doc._date > to) return false;
+    }
+    return true;
+  }
+
+  function fmtDate(d){
+    if(!d) return '—';
+    return d.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'})
+      + '<div style="color:#999;font-size:11px">' + d.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'}) + '</div>';
+  }
+
+  function esc(s){ return String(s||'').replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]}); }
+
+  // --- Render ---
+  function render(){
+    var today = new Date(); today.setHours(0,0,0,0);
+    var counts = {quick_form:0,modal_form:0,today:0};
+    allDocs.forEach(function(d){
+      if(d.source==='quick_form') counts.quick_form++;
+      if(d.source==='modal_form') counts.modal_form++;
+      if(d._date && d._date >= today) counts.today++;
+    });
+    document.getElementById('stTotal').textContent = allDocs.length;
+    document.getElementById('stQuick').textContent = counts.quick_form;
+    document.getElementById('stModal').textContent = counts.modal_form;
+    document.getElementById('stToday').textContent = counts.today;
+
+    var filtered = allDocs.filter(matches);
+    if(filtered.length===0){
+      enquiryTable.style.display='none';
+      emptyBox.style.display='block';
+      return;
+    }
+    emptyBox.style.display='none';
+    enquiryTable.style.display='table';
+    tableBody.innerHTML='';
+    filtered.forEach(function(doc){
+      var tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td style="white-space:nowrap;color:#888;font-size:12px">'+fmtDate(doc._date)+'</td>'+
+        '<td><span class="name-bold">'+esc(doc.full_name||'—')+'</span>'+(doc.email?'<div class="sub-text">'+esc(doc.email)+'</div>':'')+'</td>'+
+        '<td>'+esc(doc.mobile||'—')+'</td>'+
+        '<td>'+esc(doc.city||'—')+'</td>'+
+        '<td>'+esc((doc.bike_brand||'')+(doc.bike_model?' '+doc.bike_model:'') || '—')+'</td>'+
+        '<td>'+esc(doc.riding_experience||'—')+'</td>'+
+        '<td><span class="badge '+(doc.source==='modal_form'?'badge-modal':'badge-quick')+'">'+(doc.source==='modal_form'?'Full App':'Quick')+'</span></td>'+
+        '<td><button class="btn" style="font-size:12px;padding:6px 12px" data-id="'+doc.id+'">View</button></td>';
+      tableBody.appendChild(tr);
+    });
+
+    // View buttons
+    tableBody.querySelectorAll('[data-id]').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var doc = allDocs.find(function(d){return d.id===btn.dataset.id;});
+        if(doc) openDetail(doc);
+      });
+    });
+  }
+
+  // --- Detail popup ---
+  function openDetail(doc){
+    detailName.textContent = doc.full_name || 'Unknown';
+    detailGrid.innerHTML = '';
+
+    function row(key, val, full){
+      if(!val) return;
+      var d = document.createElement('div');
+      d.className = 'detail-row' + (full?' detail-section-row':'');
+      if(full) d.style.gridColumn='1/-1';
+      d.innerHTML = '<div class="detail-key">'+key+'</div><div class="detail-val">'+esc(val)+'</div>';
+      detailGrid.appendChild(d);
+    }
+    function section(title){
+      var d = document.createElement('div');
+      d.className = 'detail-section';
+      d.textContent = title;
+      detailGrid.appendChild(d);
+    }
+
+    var dateStr = doc._date ? doc._date.toLocaleString('en-IN') : '—';
+    section('Submission Info');
+    row('Submitted', dateStr, true);
+    row('Source', doc.source==='modal_form'?'Full Application':'Quick Form', true);
+
+    section('Personal');
+    row('Full Name', doc.full_name);
+    row('Mobile', doc.mobile);
+    row('WhatsApp', doc.whatsapp);
+    row('Email', doc.email);
+    row('Date of Birth', doc.dob);
+    row('Gender', doc.gender);
+    row('City', doc.city);
+    row('Address', doc.address, true);
+
+    section('Emergency Contact');
+    row('Name', doc.emergency_contact_name || doc.emergency_contact);
+    row('Relationship', doc.emergency_contact_relationship);
+    row('Mobile', doc.emergency_contact_mobile);
+
+    section('Bike Details');
+    row('Brand', doc.bike_brand);
+    row('Model', doc.bike_model);
+    row('Bike Number', doc.bike_number);
+    row('Chassis', doc.chassis_number);
+    row('Purchase Year', doc.purchase_year);
+
+    section('Riding Info');
+    row('Experience', doc.riding_experience);
+    row('Ride Types', doc.ride_types);
+    row('Jersey Size', doc.jersey_size);
+    row('Instagram', doc.instagram);
+
+    section('Driving License');
+    row('DL Number', doc.dl_number);
+    row('DL Validity', doc.dl_validity);
+    if (doc.dl_copy_base64) {
+      var dlDiv = document.createElement('div');
+      dlDiv.className = 'detail-row';
+      dlDiv.style.gridColumn = '1/-1';
+      dlDiv.innerHTML = '<div class="detail-key">DL Copy</div>';
+      if (doc.dl_copy_base64.startsWith('data:application/pdf')) {
+        dlDiv.innerHTML += '<a href="'+doc.dl_copy_base64+'" download="'+(doc.dl_copy_filename||'dl.pdf')+'" style="color:var(--brand);font-size:13px">📄 Download PDF</a>';
+      } else {
+        dlDiv.innerHTML += '<img src="'+doc.dl_copy_base64+'" style="max-width:260px;max-height:180px;border-radius:8px;border:1px solid var(--line);margin-top:6px;display:block">';
+      }
+      detailGrid.appendChild(dlDiv);
+    }
+
+    section('Membership');
+    row('Membership Type', doc.membership_type);
+    row('Payment Mode', doc.payment_mode);
+    row('Transaction ID', doc.transaction_id);
+    if (doc.payment_screenshot_base64) {
+      var payDiv = document.createElement('div');
+      payDiv.className = 'detail-row';
+      payDiv.style.gridColumn = '1/-1';
+      payDiv.innerHTML = '<div class="detail-key">Payment Screenshot</div><img src="'+doc.payment_screenshot_base64+'" style="max-width:260px;max-height:180px;border-radius:8px;border:1px solid var(--line);margin-top:6px;display:block">';
+      detailGrid.appendChild(payDiv);
+    }
+
+    detailPop.classList.add('show');
+  }
+
+  detailClose.addEventListener('click',function(){ detailPop.classList.remove('show'); });
+  detailPop.addEventListener('click',function(e){ if(e.target===detailPop) detailPop.classList.remove('show'); });
+
+  // --- Filter events ---
+  searchInput.addEventListener('input', render);
+  sourceFilter.addEventListener('change', render);
+  dateFrom.addEventListener('change', render);
+  dateTo.addEventListener('change', render);
+  clearBtn.addEventListener('click',function(){
+    searchInput.value=''; sourceFilter.value='all'; dateFrom.value=''; dateTo.value=''; render();
+  });
+})();
+</script>
+</body>
+</html>
