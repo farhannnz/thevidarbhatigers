@@ -188,10 +188,30 @@ a{text-decoration:none;color:inherit}
     return new Promise(function(resolve,reject){
       if(!file){resolve(null);return;}
       if(file.size>10*1024*1024){reject(new Error('File too large. Max 10MB.'));return;}
-      var r=new FileReader();
-      r.onload=function(e){resolve(e.target.result);};
-      r.onerror=function(){reject(new Error('Failed to read file.'));};
-      r.readAsDataURL(file);
+      // For images: compress via canvas before base64
+      if(file.type.startsWith('image/')){
+        var img=new Image();
+        var url=URL.createObjectURL(file);
+        img.onload=function(){
+          var MAX=1200;
+          var w=img.width,h=img.height;
+          if(w>MAX){h=Math.round(h*MAX/w);w=MAX;}
+          if(h>MAX){w=Math.round(w*MAX/h);h=MAX;}
+          var canvas=document.createElement('canvas');
+          canvas.width=w;canvas.height=h;
+          canvas.getContext('2d').drawImage(img,0,0,w,h);
+          URL.revokeObjectURL(url);
+          resolve(canvas.toDataURL('image/jpeg',0.7));
+        };
+        img.onerror=function(){reject(new Error('Failed to read image.'));};
+        img.src=url;
+      } else {
+        // PDF: read as-is
+        var r=new FileReader();
+        r.onload=function(e){resolve(e.target.result);};
+        r.onerror=function(){reject(new Error('Failed to read file.'));};
+        r.readAsDataURL(file);
+      }
     });
   }
 
@@ -270,14 +290,7 @@ a{text-decoration:none;color:inherit}
       });
       emailPayload._subject = 'New TVT Full Application — '+data.full_name;
 
-      var fsWrite = db.collection('tvtennqyuiry').add(data).catch(function(e){console.error(e);});
-      var fsEmail = fetch('https://formsubmit.co/ajax/info@adcraftads.com',{
-        method:'POST',
-        headers:{'Content-Type':'application/json','Accept':'application/json'},
-        body:JSON.stringify(emailPayload)
-      }).catch(function(e){console.error(e);});
-
-      Promise.all([fsWrite,fsEmail]).finally(function(){
+      db.collection('tvtennqyuiry').add(data).catch(function(e){console.error(e);}).finally(function(){
         document.getElementById('formSection').style.display='none';
         document.getElementById('successScreen').style.display='block';
         var n=3;
