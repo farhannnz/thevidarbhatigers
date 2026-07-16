@@ -127,11 +127,37 @@ a{text-decoration:none;color:inherit}
       </div>
 
       <div class="fgroup"><h4>Riding Gear</h4></div>
-      <div class="chkrow">
-        <label><input type="radio" name="mf_helmet" value="Helmet"> Helmet</label>
-        <label><input type="radio" name="mf_helmet" value="No Helmet"> No Helmet</label>
+      <div class="full">
+        <label class="file-label">Do you always wear a certified helmet during rides? *</label>
+        <div class="chkrow">
+          <label><input type="radio" name="mf_helmet" value="Yes" required> Yes</label>
+          <label><input type="radio" name="mf_helmet" value="No"> No</label>
+        </div>
       </div>
-      <select class="full" id="mf_jersey"><option value="">Jersey Size</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select>
+      <div class="full">
+        <label class="file-label">Do you wear complete riding gear during community rides? *</label>
+        <div class="chkrow">
+          <label><input type="radio" name="mf_gear" value="Always" required> Always</label>
+          <label><input type="radio" name="mf_gear" value="Most of the Time"> Most of the Time</label>
+          <label><input type="radio" name="mf_gear" value="Sometimes"> Sometimes</label>
+          <label><input type="radio" name="mf_gear" value="Never"> Never</label>
+        </div>
+      </div>
+      <select class="full" id="mf_tshirt"><option value="">T-Shirt Size</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select>
+
+      <div class="fgroup"><h4>Health Information</h4></div>
+      <textarea class="full" id="mf_medical" rows="2" placeholder="Any medical conditions or allergies? (e.g. Asthma, Diabetes, None)"></textarea>
+
+      <div class="fgroup"><h4>Community Information</h4></div>
+      <div class="full">
+        <label class="file-label">How did you hear about THE VIDARBHA TIGERS? *</label>
+        <select required id="mf_referral" style="background:#111;border:1px solid #333;color:#fff;padding:16px;font-family:inherit;width:100%;border-radius:6px">
+          <option value="">Select an option *</option>
+          <option>Friend</option><option>Instagram</option><option>Facebook</option>
+          <option>KTM Showroom</option><option>Existing Member</option>
+          <option>Community Ride</option><option>Other</option>
+        </select>
+      </div>
 
       <div class="fgroup"><h4>Membership Payment</h4></div>
       <select id="mf_mem_type"><option value="">Membership Type</option><option>Lifetime</option></select>
@@ -149,9 +175,19 @@ a{text-decoration:none;color:inherit}
       </div>
 
       <div class="fgroup"><h4>Declaration</h4></div>
-      <div class="chkrow" style="flex-direction:column">
-        <label><input type="checkbox" required> I agree to follow all traffic rules and safety guidelines.</label>
-        <label><input type="checkbox" required> I agree to receive community updates.</label>
+      <div class="chkrow" style="flex-direction:column;gap:12px">
+        <label style="align-items:flex-start;gap:10px;line-height:1.5"><input type="checkbox" required style="margin-top:3px;flex-shrink:0"> I hereby declare that:
+          <ul style="color:#bbb;font-size:12px;margin-top:6px;padding-left:16px;list-style:disc;display:flex;flex-direction:column;gap:4px">
+            <li>I possess a valid Driving Licence.</li>
+            <li>My motorcycle has a valid RC, Insurance, and PUC certificate.</li>
+            <li>My motorcycle is roadworthy.</li>
+            <li>I will wear a certified helmet and appropriate riding gear during every community ride.</li>
+            <li>I will follow all traffic rules and the instructions of Ride Captains, Ride Marshals, and organizers.</li>
+            <li>I understand that motorcycling involves inherent risks and that I participate voluntarily.</li>
+            <li>I agree that THE VIDARBHA TIGERS, its organizers, volunteers, sponsors, and fellow riders shall not be held liable for any accident, injury, loss, damage, theft, or legal consequences arising from my participation.</li>
+          </ul>
+        </label>
+        <label><input type="checkbox" required> I agree to receive community updates from The Vidarbha Tigers.</label>
       </div>
 
       <div class="form-error" id="mf_error"></div>
@@ -274,7 +310,10 @@ a{text-decoration:none;color:inherit}
         riding_experience: document.getElementById('mf_exp').value,
         ride_types: rideTypes.join(', '),
         helmet: helmetEl ? helmetEl.value : '',
-        jersey_size: document.getElementById('mf_jersey').value,
+        riding_gear: (document.querySelector('input[name="mf_gear"]:checked')||{}).value||'',
+        tshirt_size: document.getElementById('mf_tshirt').value,
+        medical_conditions: document.getElementById('mf_medical').value.trim(),
+        referral_source: document.getElementById('mf_referral').value,
         membership_type: document.getElementById('mf_mem_type').value,
         payment_mode: document.getElementById('mf_pay_mode').value,
         transaction_id: document.getElementById('mf_txn_id').value.trim(),
