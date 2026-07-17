@@ -165,36 +165,10 @@ a{text-decoration:none;color:inherit}
           <label><input type="radio" name="mf_gear" value="Never"> Never</label>
         </div>
       </div>
-      <select class="full" id="mf_tshirt"><option value="">T-Shirt Size</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select>
+      <select class="full" id="mf_tshirt" style="display:none"></select>
 
       <div class="fgroup"><h4>Health Information</h4></div>
       <textarea class="full" id="mf_medical" rows="2" placeholder="Any medical conditions or allergies? (e.g. Asthma, Diabetes, None)"></textarea>
-
-      <div class="fgroup"><h4>Community Information</h4></div>
-      <div class="full">
-        <label class="file-label">How did you hear about THE VIDARBHA TIGERS? *</label>
-        <select required id="mf_referral" style="background:#111;border:1px solid #333;color:#fff;padding:16px;font-family:inherit;width:100%;border-radius:6px">
-          <option value="">Select an option *</option>
-          <option>Friend</option><option>Instagram</option><option>Facebook</option>
-          <option>KTM Showroom</option><option>Existing Member</option>
-          <option>Community Ride</option><option>Other</option>
-        </select>
-      </div>
-
-      <div class="fgroup"><h4>Membership Payment</h4></div>
-      <select id="mf_mem_type"><option value="">Membership Type</option><option>Annual</option><option>Lifetime</option></select>
-      <select id="mf_pay_mode"><option value="">Payment Mode</option><option>UPI</option></select>
-      <div class="qr-box">
-        <p>Scan to Pay — The Vidarbha Tigers</p>
-        <img src="https://i.ibb.co/pBGTfSWm/Whats-App-Image-2026-07-15-at-14-14-30-1.jpg" alt="UPI QR Code">
-        <small>Pay via UPI and enter your Transaction ID below</small>
-      </div>
-      <input id="mf_txn_id" placeholder="Transaction ID" class="full">
-      <div class="full">
-        <label class="file-label">Upload Payment Screenshot (JPG / PNG, max 10MB)</label>
-        <input type="file" id="mf_pay_ss" accept=".jpg,.jpeg,.png">
-        <div class="file-preview" id="mf_pay_preview"></div>
-      </div>
 
       <div class="fgroup"><h4>Declaration</h4></div>
       <div class="chkrow" style="flex-direction:column;gap:12px">
@@ -292,7 +266,6 @@ a{text-decoration:none;color:inherit}
     errEl.textContent = '';
 
     var dlFile = document.getElementById('mf_dl_file').files[0];
-    var payFile = document.getElementById('mf_pay_ss').files[0];
     if(!dlFile){errEl.textContent='Please upload your Driving License copy.';return;}
 
     var rideTypes=[];
@@ -301,13 +274,13 @@ a{text-decoration:none;color:inherit}
     submitBtn.disabled=true;
     submitBtn.innerHTML='<span style="display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid rgba(17,17,17,0.3);border-top-color:#111;animation:tvt-spin .7s linear infinite;vertical-align:-3px;margin-right:8px"></span>Registering...';
 
-    Promise.all([fileToBase64(dlFile), fileToBase64(payFile)]).then(function(res){
+    fileToBase64(dlFile).then(function(dlBase64){
       var data = {
         source: 'event_form',
         event_name: 'Monsoon Ride 2026',
-        event_date: '19 July 2026',
-        event_time: '7:30 AM',
-        event_route: 'KTM Kamptee to Rajkamal Inn',
+        event_date: '26 July 2026',
+        event_time: '6:00 AM',
+        event_route: 'KTM Kamptee to Kukdi Khapa',
         full_name: document.getElementById('mf_name').value.trim(),
         dob: document.getElementById('mf_dob').value,
         gender: document.getElementById('mf_gender').value,
@@ -320,7 +293,7 @@ a{text-decoration:none;color:inherit}
         emergency_contact_mobile: document.getElementById('mf_ec_mobile').value.trim(),
         dl_number: document.getElementById('mf_dl_number').value.trim(),
         dl_validity: document.getElementById('mf_dl_validity').value,
-        dl_copy_base64: res[0] || '',
+        dl_copy_base64: dlBase64 || '',
         dl_copy_filename: dlFile ? dlFile.name : '',
         bike_brand: document.getElementById('mf_bike_brand').value,
         bike_model: document.getElementById('mf_bike_model').value.trim(),
@@ -330,19 +303,11 @@ a{text-decoration:none;color:inherit}
         ride_types: rideTypes.join(', '),
         helmet: (document.querySelector('input[name="mf_helmet"]:checked')||{}).value||'',
         riding_gear: (document.querySelector('input[name="mf_gear"]:checked')||{}).value||'',
-        tshirt_size: document.getElementById('mf_tshirt').value,
         medical_conditions: document.getElementById('mf_medical').value.trim(),
-        referral_source: document.getElementById('mf_referral').value,
-        membership_type: document.getElementById('mf_mem_type').value,
-        payment_mode: document.getElementById('mf_pay_mode').value,
-        transaction_id: document.getElementById('mf_txn_id').value.trim(),
-        payment_screenshot_base64: res[1] || '',
-        payment_screenshot_filename: payFile ? payFile.name : '',
         submittedAt: firebase.firestore.FieldValue.serverTimestamp()
       };
 
-      db.collection('tvtennqyuiry').add(data).catch(function(e){console.error(e);}).finally(function(){
-        document.getElementById('formSection').style.display='none';
+      db.collection('tvtennqyuiry').add(data).catch(function(e){console.error(e);}).finally(function(){        document.getElementById('formSection').style.display='none';
         document.getElementById('successScreen').style.display='block';
         var n=3;
         document.getElementById('countdownNum').textContent=n;
