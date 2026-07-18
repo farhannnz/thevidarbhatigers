@@ -1,0 +1,728 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Vidarbha Tigers</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{--o:#ff6500;--b:#050505;--p:#111;--m:#aaa;--l:#292929}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--b);color:#fff;font:15px/1.6 Montserrat,sans-serif}a{text-decoration:none;color:inherit}img{width:100%;height:100%;object-fit:cover}.c{width:min(1200px,92%);margin:auto}.s{padding:52px 0}.e{color:var(--o);font-size:12px;font-weight:900;letter-spacing:2px;text-transform:uppercase}h1,h2,h3{font-family:Anton;text-transform:uppercase;line-height:1.02;font-weight:400}h2{font-size:clamp(32px,5vw,58px);margin:8px 0 24px}.o{color:var(--o)}.btn{border:1px solid #555;background:transparent;color:#fff;padding:15px 24px;font-weight:900;text-transform:uppercase;cursor:pointer;transition:.25s;font-family:inherit;font-size:13px}.btn:hover{transform:translateY(-3px);border-color:var(--o);box-shadow:0 0 30px #ff650055}.primary{background:var(--o);border-color:var(--o)}
+@keyframes hb{0%,100%{transform:scale(1)}10%{transform:scale(1.07)}20%{transform:scale(1)}30%{transform:scale(1.07)}40%{transform:scale(1)}}
+.open{animation:hb 2.2s ease-in-out infinite}
+.open:hover{animation-play-state:paused}
+nav{position:fixed;inset:0 0 auto;height:74px;z-index:20;background:#050505d9;backdrop-filter:blur(12px);border-bottom:1px solid #ffffff10}.nav{height:100%;display:flex;align-items:center;justify-content:space-between}.brand{font:20px/1 Anton;display:flex;align-items:center;gap:10px}.brand img{width:42px;height:42px;object-fit:cover;border-radius:8px;border:1px solid #ff650055}.brand b{display:block;color:var(--o);font-size:27px}.links{display:flex;gap:26px;align-items:center;font-size:11px;font-weight:800;text-transform:uppercase}
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(90deg,#000 0%,#000b 43%,#0004),url('https://i.ibb.co/yngM3Gtp/Screenshot-2026-07-18-17-54-24-79-f9ee0578fe1cc94de7482bd41accb329.jpg') 40% center/cover}
+.claw{position:absolute;pointer-events:none;z-index:2}
+.claw-tr{top:6%;right:2%;width:280px;opacity:.85;transform:rotate(6deg)}
+.claw-bl{bottom:4%;left:-3%;width:220px;opacity:.4;transform:rotate(-14deg) scaleX(-1)}
+.claw svg{width:100%;height:auto;display:block}
+.hc,.hero .c{position:relative;z-index:3}.hc{max-width:720px;padding-top:40px}.hero h1{font-size:clamp(36px,6vw,78px);margin:12px 0 20px;text-shadow:0 10px 40px #000;font-weight:400}.hero p{max-width:600px;color:#ddd}.tags{display:flex;gap:20px;flex-wrap:wrap;margin:25px 0;font-size:11px;font-weight:800}.acts{display:flex;gap:12px;flex-wrap:wrap}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}.pic{height:550px;position:relative}.pic:after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 80px #000;border:1px solid #ff650055}.copy p{color:var(--m);margin:0 0 13px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--l);background:#0b0b0b}.stat{padding:34px;border-right:1px solid var(--l)}.stat:last-child{border:0}.stat strong{font:48px Anton;color:var(--o);display:block}.stat span{font-size:11px;font-weight:900;text-transform:uppercase}.stat small{display:block;color:#777}
+.mvbox{display:grid;grid-template-columns:1fr 1fr;gap:14px}.mvbox>div{padding:42px;border:1px solid var(--l);background:#141414;display:flex;flex-direction:column}.mvbox .m1{background:#141414;color:#fff}.mvbox .m2{background:#141414}.mvicon{display:none}.m2 .mvicon{display:none}.mvbox h3{font-size:28px;margin:0 0 10px;color:#fff}.mvbox p{color:#bbb;opacity:1}.m2 p{color:#bbb}.mvimg{height:220px;margin-top:auto;overflow:hidden;border-radius:6px}.m1 .mvimg{box-shadow:inset 0 0 0 1px #ff650033}.m2 .mvimg{box-shadow:inset 0 0 0 1px #ff650033}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:35px}.card{padding:30px;min-height:210px;background:linear-gradient(145deg,#171717,#090909);border:1px solid var(--l);transition:.3s;position:relative;overflow:hidden}.card:before{content:"";position:absolute;top:-40px;right:-40px;width:100px;height:100px;background:radial-gradient(circle,#ff650022,transparent 70%)}.card:hover{transform:translateY(-7px);border-color:var(--o);box-shadow:0 15px 35px #ff650022}.card:hover .icb{background:var(--o);color:#111;transform:rotate(-6deg) scale(1.08)}.card .icb{width:54px;height:54px;border-radius:14px;background:#1c1c1c;border:1px solid var(--o);display:flex;align-items:center;justify-content:center;font-size:24px;transition:.3s;color:var(--o)}.card h3{font-size:25px;margin:18px 0 7px}.card p{color:#bbb}
+.founders{background:#090909;position:relative;overflow:hidden}.founders:before{content:"";position:absolute;top:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,#ff650018,transparent 70%)}.founderwrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:stretch;position:relative}.founderimg{border-radius:16px;overflow:hidden;border:2px solid #ff650055}.founderimg img{width:100%;height:auto;display:block;object-fit:contain}.founder{background:#121212;border-left:3px solid var(--o);border-radius:0 10px 10px 0;padding:20px 20px 20px 26px;margin-top:13px;position:relative;transition:.3s}.founder:hover{transform:translateX(6px);background:#161616;box-shadow:0 10px 25px #ff650018}.founder:before{content:attr(data-n);position:absolute;right:18px;top:14px;font:34px Anton;color:#ff650022}.founder span{color:var(--o);font-size:11px;font-weight:900;text-transform:uppercase}.founder h3{font-size:26px;display:inline-block;border:1px solid var(--o);padding:3px 12px;border-radius:5px;margin-top:4px}.founder p{color:#bbb}.ajay-mobile{display:none}
+
+.code{text-align:center;background:radial-gradient(circle,#ff65001f,transparent 55%)}.codegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:35px}.codegrid div{padding:38px 15px;border:1px solid var(--l);background:#0c0c0ccc}.codegrid b{color:var(--o)}.codegrid h3{font-size:30px;margin:8px}.codegrid p{color:var(--m)}
+.ride{display:grid;grid-template-columns:.9fr 1.1fr;background:#0c0c0c;border:1px solid var(--l)}.ri{padding:40px}.ri h3{font-size:44px;margin:15px 0}.ri p{color:#bbb;margin:2px 0}.count{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:20px 0}.time{background:#181818;padding:12px;text-align:center}.time strong{font:30px Anton;display:block}.time span{font-size:9px;color:#888}.ridepic{align-self:center;max-height:300px;background:#000;display:flex;align-items:center;justify-content:center;padding:16px}.ridepic img{object-fit:contain;background:#000;max-height:100%}
+.ridepic-mobile{display:none}.gallery{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:30px}.gallery-roads{grid-template-columns:repeat(3,1fr)}.gi{height:300px;position:relative;overflow:hidden}.gi img{transition:.5s}.gi:hover img{transform:scale(1.08)}.ov{position:absolute;inset:0;padding:17px;display:flex;flex-direction:column;justify-content:end;background:linear-gradient(transparent 40%,#000f)}.ov h3{font-size:18px}.ov small{color:#ccc;font-size:11px}
+.community{display:flex;flex-wrap:wrap;gap:26px;margin-top:35px}.member{text-align:center;width:130px}.member .av{width:96px;height:96px;border-radius:50%;margin:0 auto 10px;border:2px solid var(--o);overflow:hidden}.member h4{font:15px Anton;letter-spacing:.5px}.member span{display:block;color:#999;font-size:11px;margin-top:2px}
+.hearfollow{display:grid;grid-template-columns:1fr 1fr;gap:40px}.testi{background:#101010;border:1px solid var(--l);border-left:3px solid var(--o);padding:28px;margin-bottom:16px;border-radius:4px;position:relative}.testi-quote{font:72px Georgia,serif;color:#ff650022;position:absolute;top:10px;left:18px;line-height:1}.testi p{color:#ddd;font-size:15px;line-height:1.75;font-style:italic;padding-top:20px;position:relative;z-index:1}.testi .who{display:flex;align-items:center;gap:12px;margin-top:18px}.testi .who img{width:42px;height:42px;border-radius:50%;border:2px solid var(--o)}.testi .who b{font-size:13px;display:block}.testi .who span{display:block;color:#888;font-size:12px;margin-top:2px}
+.igrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.igrid .gi{height:200px}
+.safe{background:var(--o);color:#080808}.safegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.safegrid div{border-top:2px solid #080808;padding-top:15px}.safe h3{font-size:27px}
+.join{background:linear-gradient(90deg,#000f,#000c),url('https://i.ibb.co/G46Cfb3T/Whats-App-Image-2026-07-14-at-09-25-19-2.jpg') center/cover}.form{display:grid;grid-template-columns:1fr 1fr;gap:10px}.form input,.form select,.form textarea{background:#111;border:1px solid #333;color:#fff;padding:16px;font-family:inherit;width:100%}.full{grid-column:1/-1}
+footer{padding:55px 0 25px;border-top:1px solid var(--l)}.footgrid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.3fr;gap:30px}.footgrid h4{font-size:12px;letter-spacing:1px;color:var(--o);text-transform:uppercase;margin-bottom:16px}.footgrid ul{list-style:none}.footgrid li{margin-bottom:10px}.footgrid li a{color:#999;font-size:13px}.footgrid li a:hover{color:var(--o)}.social{display:flex;gap:12px}.social a{width:38px;height:38px;border-radius:50%;border:1px solid var(--l);display:flex;align-items:center;justify-content:center;font-size:15px;transition:.25s}.social a:hover{background:var(--o);border-color:var(--o);color:#111}.foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:10px}.foot-brand img{width:44px;height:44px;border-radius:8px}.foot-tag{color:#777;font-size:12px;margin-top:6px}.wa-box{margin-top:6px}.wa-box p{color:#999;font-size:12px;margin-bottom:12px}.bottom-line{border-top:1px solid var(--l);margin-top:40px;padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#777;font-size:12px}
+.pop{position:fixed;inset:0;z-index:50;background:#000d;display:none;place-items:center;padding:20px}.pop.show{display:grid}.modal{width:min(680px,100%);max-height:88vh;overflow-y:auto;background:#0d0d0d;border:1px solid var(--o);padding:38px;position:relative;box-shadow:0 0 70px #ff650044}.modal h3{font-size:40px}.x{position:sticky;float:right;top:0;right:0;background:#0d0d0d;border:1px solid #333;color:#fff;font-size:22px;cursor:pointer;width:36px;height:36px;border-radius:50%}
+.fgroup{grid-column:1/-1;margin-top:6px}.fgroup h4{font:14px Anton;letter-spacing:1px;color:var(--o);text-transform:uppercase;border-left:3px solid var(--o);padding-left:9px;margin:22px 0 12px}.fgroup:first-of-type h4{margin-top:6px}
+.chkrow{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px 20px;margin:4px 0 2px}.chkrow label{display:flex;align-items:center;gap:7px;font-size:13px;color:#ccc;font-weight:400}.chkrow input{width:auto;accent-color:var(--o)}
+.float{position:fixed;right:22px;bottom:22px;z-index:19;width:58px;height:58px;border:0;border-radius:50%;background:var(--o);font-size:11px;font-weight:900;cursor:pointer;box-shadow:0 0 35px #ff650088}
+@media(max-width:540px){.float{left:50%;transform:translateX(-50%);right:auto;bottom:16px;width:auto;border-radius:30px;padding:0 22px;height:46px;font-size:12px;letter-spacing:1px}}.reveal{opacity:0;transform:translateY(25px);transition:.7s}.reveal.on{opacity:1;transform:none}
+/* ---- Event Carousel ---- */
+.evt-carousel{position:relative;overflow:hidden;background:#000;height:520px}
+.evt-carousel .ec-track{display:flex;height:100%;transition:transform .6s cubic-bezier(.4,0,.2,1)}
+.evt-carousel .ec-slide{flex:0 0 100%;height:100%}
+.evt-carousel .ec-slide img{width:100%;height:100%;object-fit:contain;background:#000;display:block}
+.ec-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:5;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.2);color:#fff;width:44px;height:44px;border-radius:50%;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s}
+.ec-btn:hover{background:var(--o);border-color:var(--o)}
+.ec-prev{left:16px}.ec-next{right:16px}
+.ec-dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:5}
+.ec-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:.2s}
+.ec-dot.active{background:var(--o);width:22px;border-radius:4px}
+@media(max-width:540px){.evt-carousel{height:260px}}
+
+/* ---- Past Rides Slider ---- */
+.past-slider{position:relative;border-radius:10px}
+.ps-overflow{overflow:hidden;border-radius:10px}
+.ps-track{display:flex;transition:transform .5s ease;width:100%}
+.ps-slide{flex:0 0 100%;padding:0;position:relative}
+.ps-slide img{width:100%;height:auto;max-height:600px;object-fit:contain;background:#000;border-radius:8px;display:block}
+.ps-label{display:none}
+.ps-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.3);color:#fff;width:44px;height:44px;border-radius:50%;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s}
+.ps-btn:hover{background:var(--o);border-color:var(--o)}
+.ps-prev{left:12px}.ps-next{right:12px}
+@media(max-width:700px){.ps-slide img{max-height:300px}}
+
+/* ---- About grid responsive ---- */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.about-grid .about-img{border-radius:10px;overflow:hidden;border:1px solid #ff650033;margin-top:20px;max-width:420px}
+.about-grid .about-img img{width:100%;height:auto;display:block}
+@media(max-width:850px){.about-grid{grid-template-columns:1fr;gap:30px}.about-grid .about-img{max-width:100%}}
+.about-community{background:#0a0a0a;border-top:1px solid var(--l);border-bottom:1px solid var(--l)}
+.ktm-badge{display:inline-flex;align-items:center;gap:8px;background:#ff650015;border:1px solid #ff650044;border-radius:30px;padding:6px 16px;margin-bottom:20px;font-size:12px;font-weight:800;color:var(--o);text-transform:uppercase;letter-spacing:1px}
+.benefits-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0 28px}
+.benefit-item{display:flex;align-items:flex-start;gap:10px;padding:14px;background:#111;border:1px solid var(--l);border-radius:8px;font-size:13px;color:#ccc;line-height:1.5}
+.benefit-item .bi-icon{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#ff650022;border:1px solid #ff650055;display:flex;align-items:center;justify-content:center;font-size:13px;margin-top:1px}
+.community-cta{background:linear-gradient(135deg,#ff6500,#c04500);border-radius:10px;padding:24px;margin-top:24px;text-align:center}
+.community-cta p{font-size:14px;color:rgba(0,0,0,.75);margin-bottom:14px;font-weight:600}
+.community-cta strong{display:block;font:20px Anton;color:#111;margin-bottom:6px;text-transform:uppercase}
+@media(max-width:600px){.benefits-grid{grid-template-columns:1fr}}
+.ham{display:none;flex-direction:column;gap:5px;background:transparent;border:none;cursor:pointer;padding:6px;z-index:25}
+.ham span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:.3s}
+.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.ham.open span:nth-child(2){opacity:0}
+.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+@media(max-width:850px){
+  .ham{display:flex}
+  .links{
+    position:fixed;top:74px;left:0;right:0;bottom:0;
+    background:#050505f0;backdrop-filter:blur(16px);
+    flex-direction:column;align-items:center;justify-content:center;
+    gap:32px;font-size:14px;
+    transform:translateX(100%);transition:transform .35s ease;
+    pointer-events:none;
+  }
+  .links.active{transform:translateX(0);pointer-events:auto}
+  .links a{display:block;font-size:16px}
+  .links .btn.primary{display:none}
+  .grid2,.founderwrap,.hearfollow{grid-template-columns:1fr}
+  .ajay-desktop{display:none}
+  .ajay-mobile{display:block}
+  .founderimg img{height:auto}
+  .benefits-grid{grid-template-columns:1fr}
+  .ride{grid-template-columns:1fr;flex-direction:column}
+  .ridepic{max-height:240px;padding:16px}
+  .ridepic-desktop{display:none}
+  .ridepic-mobile{display:block;width:100%;overflow:hidden;margin-bottom:18px;background:#000}
+  .ridepic-mobile img{width:100%;height:auto;object-fit:contain}
+  .cards{grid-template-columns:1fr 1fr}
+  .gallery{grid-template-columns:1fr 1fr}
+  .gallery-roads{grid-template-columns:1fr}
+  .footgrid{grid-template-columns:1fr 1fr}
+  .mvbox{grid-template-columns:1fr}
+  .pic{height:340px}
+  .founderimg{height:320px}
+  .ridepic{padding:0}
+  .modal{padding:26px}
+}
+
+@media(max-width:540px){
+  .s{padding:38px 0}
+  .hero{min-height:100svh}
+  .hero h1{font-size:clamp(34px,9vw,46px)}
+  .hero{min-height:60vh}
+  .hc{padding-top:30px}
+  .acts{flex-direction:column;align-items:flex-start}
+  .acts .btn{width:100%;text-align:center}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat{border-right:0;border-bottom:1px solid var(--l)}
+  .stat:nth-child(odd){border-right:1px solid var(--l)}
+  .stat:last-child,.stat:nth-last-child(-n+2):nth-child(odd){border-bottom:0}
+  .cards,.codegrid,.gallery,.safegrid,.igrid{grid-template-columns:1fr}
+  .form{grid-template-columns:1fr}
+  .full,.form input,.form select,.form textarea{grid-column:auto}
+  .chkrow{flex-direction:column;gap:8px}
+  .pic,.founderimg{height:auto}
+  .founderimg img{height:auto}
+  .footgrid{grid-template-columns:1fr}
+  .modal{padding:20px 16px}
+  .modal h3{font-size:28px}
+  .mvbox{grid-template-columns:1fr}
+  .mvbox>div{padding:28px}
+  .ride{display:grid;grid-template-columns:1fr}
+  .ri{padding:24px}
+  .ri h3{font-size:32px}
+  .count{grid-template-columns:repeat(4,1fr)}
+  .ridepic{padding:16px;max-height:220px}
+  .community{justify-content:center}
+  .member{width:110px}
+  .hearfollow{gap:28px}
+  .safe .safegrid{grid-template-columns:1fr 1fr}
+  .join .grid2{grid-template-columns:1fr}
+  h2{font-size:clamp(32px,8vw,48px)}
+  .claw-tr{width:150px}
+  .claw-bl{width:100px}
+  .bottom-line{flex-direction:column;gap:6px;text-align:center}
+}.naresh-portrait{height:600px!important}
+@media(max-width:540px){.naresh-portrait{height:330px!important}}
+</style></head><body>
+<nav><div class="c nav"><a class="brand" href="#"><img src="https://i.ibb.co/Gfw6RZHc/Whats-App-Image-2026-07-14-at-09-25-18-1.jpg" alt="Vidarbha Tigers Logo">THE VIDARBHA<b>TIGERS</b></a><button class="ham" id="ham" aria-label="Toggle menu"><span></span><span></span><span></span></button><div class="links" id="navLinks"><a href="#" onclick="closeNav()">Home</a><a href="#about" onclick="closeNav()">About</a><a href="#rides" onclick="closeNav()">Rides</a><a href="#gallery" onclick="closeNav()">Gallery</a><a href="#community" onclick="closeNav()">Community</a><a href="#contact" onclick="closeNav()">Contact</a><button class="btn primary open">Join The Vidarbha Tigers Community</button></div></div></nav>
+
+<!-- UPCOMING EVENTS CAROUSEL (above hero) -->
+<div style="margin-top:74px;background:#000;padding:18px 0 0">
+  <div class="c" style="padding-bottom:12px">
+    <div class="e" style="margin-bottom:6px">Upcoming Events</div>
+    <h2 style="font-size:clamp(22px,4vw,36px);margin:0;font-weight:400">What's Coming <span class="o">Next.</span></h2>
+  </div>
+  <div class="evt-carousel" id="evtCarousel" style="margin-top:0">
+    <div class="ec-track" id="ecTrack">
+      <div class="ec-slide"><img src="https://i.ibb.co/0RHfmXdp/Gemini-Generated-Image-xs9b9fxs9b9fxs9b.png" alt="Monsoon Ride 2026"></div>
+    </div>
+  </div>
+  <div class="c" style="text-align:center;padding:20px 0 6px">
+    <a href="/mansion.html" class="btn primary">Join This Ride</a>
+  </div>
+</div>
+
+<header class="hero">
+<div class="c"><div class="hc"><div class="e">The Vidarbha Tigers</div><h1>Ride Together.<br><span class="o">Ride Beyond.</span></h1><p>Vidarbha's exclusive riding community for passionate riders, fearless explorers and those who live for the open road.</p><div class="tags"><span>GROUP RIDES</span><span>ADVENTURES</span><span>EVENTS</span><span>BROTHERHOOD</span></div><div class="acts"><a class="btn" href="#rides">Explore Our Rides</a></div></div></div></header>
+
+<!-- ABOUT COMMUNITY merged into about section -->
+<section class="s reveal" id="about">
+<div class="c">
+  <div class="about-grid">
+    <div>
+      <div class="e">About The Community</div>
+      <h2>More Than Riders.<br><span class="o">We Are A Tribe.</span></h2>
+            <div class="about-img"><img src="https://i.ibb.co/27ZCr061/Whats-App-Image-2026-07-14-at-09-25-17-1.jpg" alt="Vidarbha Tigers Community"></div>
+
+     </div>
+    <div>
+         <p style="color:#bbb;margin:0 0 13px"><strong style="color:#fff">The Vidarbha Tigers</strong> is more than a riding community — it's a tribe of passionate riders united by adventure, brotherhood and the love for the open road.</p>
+      <p style="color:#bbb;margin:0 0 13px">Born in Vidarbha, we bring riders together to explore new roads, experience unforgettable journeys and create connections that go beyond motorcycles.</p>
+      <div class="ktm-badge" style="margin:18px 0 10px">🏍️ Exclusively For KTM Owners</div>
+      <p style="color:#bbb;margin:0 0 20px;font-size:14px"><strong style="color:#fff">The Vidarbha Tigers</strong> Riding Community is created <strong style="color:#fff">only for KTM owners</strong> who share a passion for riding, adventure, and the strong spirit.</p>
+    
+      <h3 style="font:16px Anton;color:var(--o);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;border-left:3px solid var(--o);padding-left:10px">Member Benefits</h3>
+      <div class="benefits-grid" style="margin-bottom:22px">
+        <div class="benefit-item"><div class="bi-icon">🏍️</div>Exclusive KTM rides, weekend tours, and adventure events.</div>
+        <div class="benefit-item"><div class="bi-icon">🎁</div><strong style="color:#fff">Exclusive KTM Gift Hamper</strong> on joining.</div>
+        <div class="benefit-item"><div class="bi-icon">🤝</div>Connect with KTM riders — strong riding brotherhood.</div>
+        <div class="benefit-item"><div class="bi-icon">🛡️</div>Riding skill sessions, safety workshops, meetups.</div>
+        <div class="benefit-item"><div class="bi-icon">⭐</div>Priority access to KTM events, launches, experiences.</div>
+        <div class="benefit-item"><div class="bi-icon">💰</div>Special referral rewards on successful bike sales.</div>
+        <div class="benefit-item"><div class="bi-icon">🔧</div>Exclusive service benefits &amp; member-only offers.</div>
+        <div class="benefit-item"><div class="bi-icon">📢</div>Early access to updates, rides &amp; exclusive promotions.</div>
+      </div>
+      <div class="community-cta">
+        <strong>Ride Together. Explore More. Earn More.</strong>
+        <p>Join the Vidarbha Tiger Riding Community — Exclusively for KTM Owners.</p>
+        <a href="/form.html" class="btn primary" style="font-size:14px">Become A Member →</a>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+
+<section class="s reveal"><div class="c"><div class="e">Our Purpose</div><h2>Our <span class="o">Mission & Vision.</span></h2><div class="mvbox"><div class="m1"><h3>Our <span class="o">Mission</span></h3><p>Our mission is to unite motorcycle enthusiasts through safe, organized, and memorable riding experiences that foster friendship, learning, and personal growth. We are committed to promoting road safety, encouraging responsible riding practices, supporting community welfare initiatives, and preserving the spirit of adventure. Every ride reflects our values of brotherhood, discipline, and the true strong spirit.</p><div class="mvimg"><img src="https://i.ibb.co/9kSyFy8H/Whats-App-Image-2026-07-17-at-19-42-30.jpg" alt="Tigers Unite"></div></div><div class="m2"><h3>Our <span class="o">Vision</span></h3><p>To establish The Vidarbha Tigers Riding Community as a trusted and respected organization that promotes responsible motorcycling, adventure, and lifelong team spirit. We aspire to create a culture of discipline, safety, and mutual respect while inspiring riders to explore new horizons with purpose. Through leadership, community engagement, and ethical conduct, we aim to set a benchmark for riding communities across the region.</p><div class="mvimg"><img src="https://i.ibb.co/M5p6mSYR/Whats-App-Image-2026-07-17-at-19-42-07.jpg" alt="On The Road"></div></div></div></div></section>
+
+<section class="s reveal"><div class="c"><div class="e">The Tiger Experience</div><h2>This Is How <span class="o">Tigers Ride.</span></h2><div class="cards"><div class="card"><div class="icb"><i class="fa-solid fa-motorcycle"></i></div><h3>Group Rides</h3><p>Ride together. Explore together.</p></div><div class="card"><div class="icb"><i class="fa-solid fa-sun"></i></div><h3>Breakfast Rides</h3><p>Early roads, fresh destinations and a warm meal to fuel the brotherhood.</p></div><div class="card"><div class="icb"><i class="fa-solid fa-map-location-dot"></i></div><h3>Long Tours</h3><p>Discover new places. Conquer long distances.</p></div><div class="card"><div class="icb"><i class="fa-solid fa-flag-checkered"></i></div><h3>Rider Events</h3><p>Exclusive events, challenges and experiences.</p></div><div class="card"><div class="icb"><i class="fa-solid fa-people-group"></i></div><h3>Meetups</h3><p>Connect with passionate riders across Vidarbha.</p></div><div class="card"><div class="icb"><i class="fa-solid fa-mountain"></i></div><h3>Adventure</h3><p>New roads, thrilling challenges, unforgettable moments.</p></div></div></div></section>
+
+<section class="s founders reveal" id="founders"><div class="c founderwrap">
+<div style="display:flex;flex-direction:column;gap:18px;align-items:center;height:100%;justify-content:space-between">
+  <div class="founderimg naresh-portrait" style="width:100%;max-width:480px"><img src="https://i.ibb.co/M5VxT5PS/Whats-App-Image-2026-07-17-at-19-41-24.jpg" alt="Naresh Patni" style="width:100%;height:100%;display:block;border-radius:16px;object-fit:cover;object-position:top"></div>
+  <div style="text-align:center;padding:10px 0">
+    <div class="e">Our Inspiration</div>
+    <h3 style="font-size:32px;color:#fff;margin:4px 0 6px">Late Shri. Naresh Patni Ji</h3>  </div>
+  <div class="ajay-desktop" style="width:100%;margin-top:34px">
+    <div class="founder" data-n="04">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px">
+        <img src="https://i.ibb.co/0jLP8H8W/IMG-20260718-WA0022.jpg" alt="Ajay Madavi" style="width:80px;height:80px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--o);flex-shrink:0">
+        <div><span style="color:var(--o);font-size:11px;font-weight:900;text-transform:uppercase">Core Community Member</span><h3 style="font-size:20px;margin:2px 0">Ajay Madavi</h3></div>
+      </div>
+      <p style="color:#bbb;font-size:13px">Ajay Madavi is a B.Com graduate and a Sales Executive at Patni KTM Showroom, serving as a Pro Biking Advisor. Passionate about premium motorcycles, he is dedicated to helping customers choose the right KTM while delivering exceptional service and a seamless buying experience.</p>
+    </div>
+  </div>
+</div>
+<div><div class="e">The People Behind The Roar</div><h2>Meet Our <span class="o">Founders.</span></h2><p style="color:#aaa;margin-bottom:4px">Every strong tribe begins with a vision. Meet the riders who built a community around responsible riding, adventure and brotherhood.</p>
+<div class="founder" data-n="01">
+  <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px">
+    <img src="https://i.ibb.co/5Xsf3yV0/Whats-App-Image-2026-07-17-at-19-40-55.jpg" style="width:80px;height:80px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--o);flex-shrink:0">
+    <div><span style="color:var(--o);font-size:11px;font-weight:900;text-transform:uppercase">Co-Founder</span><h3 style="font-size:20px;margin:2px 0">Nupur Patni Aarya</h3></div>
+  </div>
+  <p style="color:#bbb;font-size:13px">Nupur Patni Arya believes in bringing people together through meaningful initiatives and positive leadership. She is passionate about building a strong, supportive, and responsible riding community. Her vision is to inspire unity, safety, and social impact through every journey.</p>
+</div>
+<div class="founder" data-n="02">
+  <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px">
+    <img src="https://i.ibb.co/JWjwyZy0/Whats-App-Image-2026-07-17-at-19-40-52.jpg" style="width:80px;height:80px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--o);flex-shrink:0">
+    <div><span style="color:var(--o);font-size:11px;font-weight:900;text-transform:uppercase">Co-Founder</span><h3 style="font-size:20px;margin:2px 0">Karan Arya</h3></div>
+  </div>
+  <p style="color:#bbb;font-size:13px">Karan Arya is committed to fostering a community built on trust, respect, and shared values. He encourages teamwork and responsible riding while promoting a culture of mutual support. His goal is to create lasting connections among riders.</p>
+</div>
+<div class="founder" data-n="03">
+  <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px">
+    <img src="https://i.ibb.co/C5WKyLW6/Whats-App-Image-2026-07-17-at-19-40-54.jpg" style="width:80px;height:80px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--o);flex-shrink:0">
+    <div><span style="color:var(--o);font-size:11px;font-weight:900;text-transform:uppercase">Co-Founder</span><h3 style="font-size:20px;margin:2px 0">Vikram Jain</h3></div>
+  </div>
+  <p style="color:#bbb;font-size:13px">Vikram Jain is dedicated to strengthening the riding community through leadership and service. He believes every ride is an opportunity to inspire discipline, friendship, and social responsibility. His focus is on creating a united and purpose-driven community.</p>
+</div>
+<div class="founder ajay-mobile" data-n="04">
+  <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px">
+    <img src="https://i.ibb.co/0jLP8H8W/IMG-20260718-WA0022.jpg" alt="Ajay Madavi" style="width:80px;height:80px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--o);flex-shrink:0">
+    <div><span style="color:var(--o);font-size:11px;font-weight:900;text-transform:uppercase">Core Community Member</span><h3 style="font-size:20px;margin:2px 0">Ajay Madavi</h3></div>
+  </div>
+  <p style="color:#bbb;font-size:13px">Ajay Madavi is a B.Com graduate and a Sales Executive at Patni KTM Showroom, serving as a Pro Biking Advisor. Passionate about premium motorcycles, he is dedicated to helping customers choose the right KTM while delivering exceptional service and a seamless buying experience.</p>
+</div>
+<div class="founder" data-n="05">
+  <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px">
+    <img src="https://i.ibb.co/b53xJHDH/IMG-20260718-WA0009.jpg" alt="Priyanshi Jain" style="width:80px;height:80px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--o);flex-shrink:0">
+    <div><span style="color:var(--o);font-size:11px;font-weight:900;text-transform:uppercase">Core Community Member</span><h3 style="font-size:20px;margin:2px 0">Priyanshi Jain</h3></div>
+  </div>
+  <p style="color:#bbb;font-size:13px">Priyanshi Jain is a BBA graduate currently working at Patni Automobiles as a Sales Executive and HR Executive. With expertise in customer relationship management, sales, and human resources, she is committed to delivering excellent service while contributing to organizational growth through professionalism and effective communication.</p>
+</div>
+</div></div></section>
+
+
+
+<section class="s reveal" id="rides"><div class="c"><div class="e">Next Roar Begins In</div><h2>Monsoon <span class="o">Ride.</span></h2>
+<div class="ridepic-mobile"><img src="https://i.ibb.co/XrBPT33x/Whats-App-Image-2026-07-17-at-11-37-06.jpg" alt="Monsoon Ride 26th July"></div>
+<div class="ride"><div class="ri"><div class="count"><div class="time"><strong id="d">00</strong><span>Days</span></div><div class="time"><strong id="h">00</strong><span>Hours</span></div><div class="time"><strong id="m">00</strong><span>Minutes</span></div><div class="time"><strong id="ss">00</strong><span>Seconds</span></div></div>
+<h3>Monsoon <span class="o">Ride 2026</span></h3>
+<p style="margin-top:10px"><strong style="color:#fff">📅 Date:</strong> 26 July 2026</p>
+<p><strong style="color:#fff">⏰ Time:</strong> 6:00 AM</p>
+<p><strong style="color:#fff">📍 Venue:</strong> KTM Kamptee Roaad (Patni KTM Kamptee)</p>
+<p><strong style="color:#fff">🏁 Route:</strong> KTM Kamptee to Kukdi Khapa</p>
+<p><strong style="color:#fff">🤝 In association with:</strong> Patni KTM Kamptee</p>
+<p class="o" style="margin-top:12px"><b>Roads are wet. Spirits are high.</b></p>
+</div><div class="ridepic ridepic-desktop"><img src="https://i.ibb.co/XrBPT33x/Whats-App-Image-2026-07-17-at-11-37-06.jpg" alt="Monsoon Ride 26th July"></div></div></div></section>
+
+<section class="s reveal" id="gallery"><div class="c"><div class="e">Ride Stories</div><h2>Roads We've <span class="o">Conquered.</span></h2><div class="gallery gallery-roads">
+<div class="gi"><img src="https://i.ibb.co/67xkd07T/Screenshot-2026-07-17-195949.png"><div class="ov"><h3>Adventure Ride</h3></div></div>
+<div class="gi"><img src="https://i.ibb.co/v47TkGPs/Screenshot-2026-07-17-195940.png"><div class="ov"><h3>On The Road</h3></div></div>
+<div class="gi"><img src="https://i.ibb.co/BHcvV8KS/Screenshot-2026-07-17-195910.png"><div class="ov"><h3>Amar Enduro Park Ride</h3></div></div>
+<div class="gi"><img src="https://i.ibb.co/0ytwpHvw/Screenshot-2026-07-17-195901.png"><div class="ov"><h3>Off Road Bash</h3><small>#bharatmeet</small></div></div>
+<div class="gi"><img src="https://i.ibb.co/Q3dYx3Xs/Screenshot-2026-07-17-195820.png"><div class="ov"><h3>Tiger Brotherhood</h3></div></div>
+<div class="gi"><img src="https://i.ibb.co/twK33v9G/IMG-20260718-WA0023.jpg"><div class="ov"><h3>Pench Ride</h3></div></div>
+</div></div></section>
+
+<!-- PAST RIDES SLIDER -->
+<section class="s reveal" style="padding-top:0"><div class="c">
+  <div class="e">Our Journey So Far</div>
+  <h2>Past <span class="o">Rides.</span></h2>
+  <p style="color:var(--o);font-weight:800;text-transform:uppercase;letter-spacing:1px;font-size:14px;margin:-12px 0 20px">World Motorcycle Day</p>
+  <div class="past-slider" id="pastSlider">
+    <div class="ps-overflow">
+      <div class="ps-track" id="psTrack">
+        <div class="ps-slide"><img src="https://i.ibb.co/8nS5FpXG/Screenshot-2026-07-17-200234.png" alt="World Motorcycle Day"></div>
+        <div class="ps-slide"><img src="https://i.ibb.co/F4xBKNLN/Screenshot-2026-07-17-200226.png" alt="World Motorcycle Day"></div>
+        <div class="ps-slide"><img src="https://i.ibb.co/YB25YhGn/Screenshot-2026-07-17-200218.png" alt="World Motorcycle Day"></div>
+      </div>
+    </div>
+    <button class="ps-btn ps-prev" id="psPrev">&#8249;</button>
+    <button class="ps-btn ps-next" id="psNext">&#8250;</button>
+  </div>
+</div></section>
+
+
+
+<section class="s reveal"><div class="c hearfollow">
+<div><div class="e">What Tigers Say</div><h2>Hear The <span class="o">Roar.</span></h2>
+<div class="testi">
+  <div class="testi-quote">"</div>
+  <p>What an unforgettable World Motorcycle Day celebration! Patni KTM organized everything beautifully at River Edge, bringing together passionate riders for a day of fun, friendship, and adventure. Looking forward to participating again next year.</p>
+  <div class="who"><div><b>Rahul Deshmukh</b><span>Duke 390 · Tiger Since 2026</span></div></div>
+</div>
+<div class="testi">
+  <div class="testi-quote">"</div>
+  <p>The community is everything I hoped it would be. Organised rides, safety-first culture, and riders who actually look out for each other. The KTM Gift Hamper on joining was a great touch — felt truly welcomed from day one.</p>
+  <div class="who"><div><b>Piyush Raut</b><span>Adventure 390 · Tiger Since 2025</span></div></div>
+</div>
+<div class="testi">
+  <div class="testi-quote">"</div>
+  <p>Celebrating World Motorcycle Day at Patni KTM was an amazing experience. The atmosphere was full of energy, and the entire team made every visitor feel welcome. It was great to meet fellow KTM riders and enjoy the celebration together. Looking forward to more such events!</p>
+  <div class="who"><div><b>Abhishek Kolhe</b><span>RC 390 · Tiger Since 2026</span></div></div>
+</div>
+</div>
+<div><div class="e">Follow The Roar</div><h2>On <span class="o">Instagram.</span></h2>
+<div class="igrid">
+<div class="gi"><img src="https://i.ibb.co/YF9M1FvH/Whats-App-Image-2026-07-14-at-09-25-19-4.jpg" alt="Vidarbha Tigers"></div>
+<div class="gi"><img src="https://i.ibb.co/hxykG4Jm/IMG-20260718-WA0019.jpg" alt="Vidarbha Tigers"></div>
+<div class="gi"><img src="https://i.ibb.co/nsgDkmd8/IMG-20260718-WA0021.jpg" alt="Vidarbha Tigers"></div>
+<div class="gi"><img src="https://i.ibb.co/rKWz9nyt/Whats-App-Image-2026-07-14-at-09-25-16.jpg" alt="Vidarbha Tigers"></div>
+<div class="gi"><img src="https://i.ibb.co/0p4WBG9M/DSC03095.jpg" alt="Vidarbha Tigers"></div>
+<div class="gi"><img src="https://i.ibb.co/S4QLXT5c/DSC03262.jpg" alt="Vidarbha Tigers"></div>
+</div>
+<p style="color:#888;margin-top:14px">#TheVidarbhaTigers #RideWithTigers #OneTribeOneRoar</p>
+<a class="btn primary" style="display:inline-block;margin-top:16px" href="https://www.instagram.com/ktm_husqvarna_kamptee_road?igsh=MTVqdWJ6ZXRwYWZwcQ==" target="_blank">Follow On Instagram</a>
+</div>
+</div></section>
+
+
+
+
+
+<footer id="contact"><div class="c">
+<div class="footgrid">
+<div><div class="foot-brand"><img src="https://i.ibb.co/Gfw6RZHc/Whats-App-Image-2026-07-14-at-09-25-18-1.jpg" alt="Logo"><span style="font:20px/1 Anton">THE VIDARBHA<b class="o" style="display:block;font-size:24px">TIGERS</b></span></div><p class="foot-tag">Ride Together. Ride Beyond.</p></div>
+<div><h4>Quick Links</h4><ul><li><a href="#">Home</a></li><li><a href="#about">About Us</a></li><li><a href="#rides">Rides</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#community">Community</a></li><li><a href="#contact">Contact</a></li></ul></div>
+<div><h4>Connect With Us</h4><div class="social"><a href="https://www.instagram.com/ktm_husqvarna_kamptee_road?igsh=MTVqdWJ6ZXRwYWZwcQ==" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="https://www.facebook.com/share/1Hve9qs756/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a><a href="https://chat.whatsapp.com/H3VNivsa1O2L8QTgElnKKL" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></div></div>
+<div><h4>Join Our WhatsApp Community</h4><div class="wa-box"><p>Be part of the tribe. Get ride updates, announcements and more.</p><a class="btn primary" href="https://chat.whatsapp.com/H3VNivsa1O2L8QTgElnKKL" target="_blank">Join Now</a></div></div>
+</div>
+<div class="bottom-line"><span>(c) 2026 The Vidarbha Tigers. All Rights Reserved.</span><span>Built for riders. Born in Vidarbha.</span></div>
+</div></footer>
+
+<button class="float open">JOIN</button>
+
+<div class="pop" id="pop"><div class="modal">
+<button class="x" id="x">x</button>
+<div class="e">Become A Tiger</div><h3>Join The Vidarbha <span class="o">Tigers Community.</span></h3>
+<p style="color:#aaa;margin:10px 0 20px">Fill in your details below to become a member of The Vidarbha Tigers.</p>
+<form class="form jf" id="modalForm">
+
+<div class="fgroup"><h4>Personal Details</h4></div>
+<input required id="mf_name" placeholder="Full Name *">
+<input required type="date" id="mf_dob">
+<select required id="mf_gender"><option value="">Gender *</option><option>Male</option><option>Female</option><option>Other</option></select>
+<input required type="tel" id="mf_mobile" placeholder="Mobile Number *">
+<input type="tel" id="mf_whatsapp" placeholder="WhatsApp Number">
+<input type="email" id="mf_email" placeholder="Email">
+<select id="mf_blood"><option value="">Blood Group</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select>
+<textarea class="full" id="mf_address" rows="2" placeholder="Address"></textarea>
+
+<div class="fgroup"><h4>Emergency Contact</h4></div>
+<input id="mf_ec_name" placeholder="Emergency Contact Name">
+<input style="display: none;" id="mf_ec_rel" placeholder="Relationship">
+<input required type="tel" id="mf_ec_mobile" placeholder="Emergency Contact Number *" class="full">
+
+<div class="fgroup"><h4>Driving License</h4></div>
+<input required id="mf_dl_number" placeholder="Driving License Number *" class="full">
+<div style="grid-column:1/-1">
+  <label style="font-size:12px;color:#999;font-weight:600;display:block;margin-bottom:6px">DL Validity Date *</label>
+  <input required type="date" id="mf_dl_validity" style="background:#111;border:1px solid #333;color:#fff;padding:16px;font-family:inherit;width:100%">
+</div>
+<div style="grid-column:1/-1">
+  <label style="font-size:12px;color:#999;font-weight:600;display:block;margin-bottom:6px">Upload Driving License Copy * (PDF/JPG/PNG, max 10MB)</label>
+  <input required type="file" id="mf_dl_file" accept=".pdf,.jpg,.jpeg,.png" style="background:#111;border:1px solid #333;color:#fff;padding:12px;font-family:inherit;width:100%">
+  <div id="mf_dl_preview" style="margin-top:8px"></div>
+</div>
+
+<div class="fgroup"><h4>Motorcycle Details</h4></div>
+<select id="mf_bike_brand"><option value="">Bike Brand</option><option>KTM</option><option>Husqvarna</option><option>Bajaj</option><option>Chetak</option><option>Other</option></select>
+<input id="mf_bike_model" placeholder="Bike Model">
+<input id="mf_bike_number" placeholder="Bike Number">
+<input style="display: none;" id="mf_chassis" placeholder="Chassis Number">
+<input type="number" id="mf_purchase_year" placeholder="Purchase Year" class="full">
+
+<div class="fgroup"><h4>Riding Experience</h4></div>
+<select class="full" id="mf_exp"><option value="">Riding Experience</option><option>Less than 1 Year</option><option>1-3 Years</option><option>3-5 Years</option><option>More than 5 Years</option></select>
+<div class="chkrow" id="mf_ride_types">
+<label><input type="checkbox" value="Weekend Ride"> Weekend Ride</label>
+<label><input type="checkbox" value="Touring"> Touring</label>
+<label><input type="checkbox" value="Adventure"> Adventure</label>
+<label><input type="checkbox" value="Off Road"> Off Road</label>
+<label><input type="checkbox" value="Breakfast Ride"> Breakfast Ride</label>
+<label><input type="checkbox" value="Track Ride"> Track Ride</label>
+</div>
+
+<div class="fgroup"><h4>Safety Gear</h4></div>
+<div style="grid-column:1/-1">
+  <label style="font-size:12px;color:#999;font-weight:600;display:block;margin-bottom:8px">Do you always wear a certified helmet during rides? *</label>
+  <div class="chkrow">
+    <label><input type="radio" name="mf_helmet" value="Yes" required> Yes</label>
+    <label><input type="radio" name="mf_helmet" value="No"> No</label>
+  </div>
+</div>
+<div style="grid-column:1/-1">
+  <label style="font-size:12px;color:#999;font-weight:600;display:block;margin-bottom:8px">Do you wear complete riding gear during community rides? *</label>
+  <div class="chkrow">
+    <label><input type="radio" name="mf_gear" value="Always" required> Always</label>
+    <label><input type="radio" name="mf_gear" value="Most of the Time"> Most of the Time</label>
+    <label><input type="radio" name="mf_gear" value="Sometimes"> Sometimes</label>
+    <label><input type="radio" name="mf_gear" value="Never"> Never</label>
+  </div>
+</div>
+<select class="full" id="mf_tshirt"><option value="">T-Shirt Size</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select>
+
+<div class="fgroup"><h4>Health Information</h4></div>
+<textarea class="full" id="mf_medical" rows="2" placeholder="Any medical conditions or allergies? (e.g. Asthma, Diabetes, None)"></textarea>
+
+<div class="fgroup"><h4>Community Information</h4></div>
+<div style="grid-column:1/-1">
+  <label style="font-size:12px;color:#999;font-weight:600;display:block;margin-bottom:8px">How did you hear about THE VIDARBHA TIGERS? *</label>
+  <select required id="mf_referral" style="background:#111;border:1px solid #333;color:#fff;padding:16px;font-family:inherit;width:100%;border-radius:0">
+    <option value="">Select an option *</option>
+    <option>Friend</option>
+    <option>Instagram</option>
+    <option>Facebook</option>
+    <option>KTM Showroom</option>
+    <option>Existing Member</option>
+    <option>Community Ride</option>
+    <option>Other</option>
+  </select>
+</div>
+
+<div class="fgroup"><h4>Membership Payment</h4></div>
+<select id="mf_mem_type"><option value="">Membership Type</option><option>Lifetime</option></select>
+<select id="mf_pay_mode"><option value="">Payment Mode</option><option>Cash</option><option>UPI</option><option>Card</option><option>Bank Transfer</option></select>
+<div style="grid-column:1/-1;background:#111;border:1px solid #333;border-radius:8px;padding:18px;text-align:center">
+  <p style="font-size:13px;color:#aaa;margin-bottom:12px">Scan to Pay — The Vidarbha Tigers</p>
+  <img src="https://i.ibb.co/pBGTfSWm/Whats-App-Image-2026-07-15-at-14-14-30-1.jpg" alt="UPI QR Code" style="width:200px;height:200px;object-fit:contain;border-radius:8px;background:#fff;padding:8px">
+  <p style="font-size:11px;color:#888;margin-top:10px">Pay via UPI and enter transaction ID below</p>
+</div>
+<input id="mf_txn_id" placeholder="Transaction ID" class="full">
+<div style="grid-column:1/-1">
+  <label style="font-size:12px;color:#999;font-weight:600;display:block;margin-bottom:6px">Upload Payment Screenshot (JPG/PNG, max 10MB)</label>
+  <input type="file" id="mf_pay_ss" accept=".jpg,.jpeg,.png" style="background:#111;border:1px solid #333;color:#fff;padding:12px;font-family:inherit;width:100%">
+  <div id="mf_pay_preview" style="margin-top:8px"></div>
+</div>
+
+<div class="fgroup"><h4>Declaration</h4></div>
+<div class="chkrow" style="flex-direction:column;gap:10px">
+<label style="align-items:flex-start;gap:10px;line-height:1.5"><input type="checkbox" required style="margin-top:3px;flex-shrink:0"> I hereby declare that:
+<ul style="color:#bbb;font-size:12px;margin-top:6px;padding-left:16px;list-style:disc;display:flex;flex-direction:column;gap:4px">
+  <li>I possess a valid Driving Licence.</li>
+  <li>My motorcycle has a valid RC, Insurance, and PUC certificate.</li>
+  <li>My motorcycle is roadworthy.</li>
+  <li>I will wear a certified helmet and appropriate riding gear during every community ride.</li>
+  <li>I will follow all traffic rules and the instructions of Ride Captains, Ride Marshals, and organizers.</li>
+  <li>I understand that motorcycling involves inherent risks and that I participate voluntarily.</li>
+  <li>I agree that THE VIDARBHA TIGERS, its organizers, volunteers, sponsors, and fellow riders shall not be held liable for any accident, injury, loss, damage, theft, or legal consequences arising from my participation.</li>
+</ul>
+</label>
+<label><input type="checkbox" required> I agree to receive community updates from The Vidarbha Tigers.</label>
+</div>
+
+<div id="mf_error" style="grid-column:1/-1;color:#ff6666;font-size:13px;min-height:16px"></div>
+<button class="btn primary full" type="submit" id="mf_submit" style="margin-top:16px">Join The Vidarbha Tigers Community</button>
+</form>
+</div></div>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script>
+var fbApp = firebase.apps && firebase.apps.length ? firebase.apps[0] : firebase.initializeApp({
+  apiKey: "AIzaSyAOJ4-YiGj521tHvoAkuXxKrhU9aDMW38Q",
+  authDomain: "naturebiotech-c043b.firebaseapp.com",
+  databaseURL: "https://naturebiotech-c043b-default-rtdb.firebaseio.com",
+  projectId: "naturebiotech-c043b",
+  storageBucket: "naturebiotech-c043b.firebasestorage.app",
+  messagingSenderId: "776538572435",
+  appId: "1:776538572435:web:29cc3fb28fee0bdcc2af66",
+  measurementId: "G-FJN1M38P33"
+});
+var db = firebase.firestore(fbApp);
+var WA_REDIRECT = 'https://chat.whatsapp.com/H3VNivsa1O2L8QTgElnKKL';
+
+// Convert file to base64
+function fileToBase64(file) {
+  return new Promise(function(resolve, reject) {
+    if (!file) { resolve(null); return; }
+    if (file.size > 10 * 1024 * 1024) { reject(new Error('File too large. Max 10MB.')); return; }
+    var reader = new FileReader();
+    reader.onload = function(e) { resolve(e.target.result); };
+    reader.onerror = function() { reject(new Error('Failed to read file.')); };
+    reader.readAsDataURL(file);
+  });
+}
+
+// Preview file inline
+function setupPreview(inputEl, previewEl) {
+  inputEl.addEventListener('change', function() {
+    var file = inputEl.files[0];
+    if (!file) { previewEl.innerHTML = ''; return; }
+    if (file.type === 'application/pdf') {
+      previewEl.innerHTML = '<span style="color:#aaa;font-size:12px">📄 ' + file.name + '</span>';
+    } else {
+      var url = URL.createObjectURL(file);
+      previewEl.innerHTML = '<img src="' + url + '" style="max-width:180px;max-height:120px;border-radius:6px;border:1px solid #444;margin-top:4px">';
+    }
+  });
+}
+
+// Save to Firestore then redirect
+function saveAndRedirect(data, btnEl, errEl) {
+  btnEl.disabled = true;
+  btnEl.innerHTML = '<span style="display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid rgba(17,17,17,0.3);border-top-color:#111;animation:tvt-spin .7s linear infinite;vertical-align:-3px;margin-right:8px"></span>Submitting...';
+  if (errEl) errEl.textContent = '';
+
+  db.collection('tvtennqyuiry').add(Object.assign({}, data, {
+    submittedAt: firebase.firestore.FieldValue.serverTimestamp()
+  })).catch(function(e) { console.error('Firestore error:', e); }).finally(function() {
+    window.location.href = WA_REDIRECT;
+  });
+}
+
+// ---- QUICK FORM ----
+var quickForm = document.querySelector('.join .jf');
+if (quickForm) {
+  quickForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var f = quickForm;
+    saveAndRedirect({
+      source: 'quick_form',
+      full_name: f.querySelector('[name="full_name"]').value.trim(),
+      mobile: f.querySelector('[name="mobile"]').value.trim(),
+      city: f.querySelector('[name="city"]').value.trim(),
+      bike_brand: f.querySelector('[name="bike_brand"]').value.trim(),
+      bike_model: f.querySelector('[name="bike_model"]').value.trim(),
+      riding_experience: f.querySelector('[name="riding_experience"]').value,
+      instagram: f.querySelector('[name="instagram"]').value.trim()
+    }, f.querySelector('button[type="submit"]'), null);
+  });
+}
+
+// ---- MODAL FORM (shared function used by both modal and standalone page) ----
+function setupModalForm(formEl) {
+  if (!formEl) return;
+  var dlInput = formEl.querySelector('#mf_dl_file') || formEl.querySelector('[data-field="dl_file"]');
+  var dlPreview = formEl.querySelector('#mf_dl_preview') || formEl.querySelector('[data-preview="dl"]');
+  var payInput = formEl.querySelector('#mf_pay_ss') || formEl.querySelector('[data-field="pay_ss"]');
+  var payPreview = formEl.querySelector('#mf_pay_preview') || formEl.querySelector('[data-preview="pay"]');
+  var errEl = formEl.querySelector('#mf_error') || formEl.querySelector('[data-error]');
+  var submitBtn = formEl.querySelector('#mf_submit') || formEl.querySelector('button[type="submit"]');
+
+  if (dlInput && dlPreview) setupPreview(dlInput, dlPreview);
+  if (payInput && payPreview) setupPreview(payInput, payPreview);
+
+  formEl.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var rideTypes = [];
+    formEl.querySelectorAll('input[type="checkbox"]:checked').forEach(function(c) {
+      if (c.value && c.value !== 'on') rideTypes.push(c.value);
+    });
+    var helmetEl = formEl.querySelector('input[name="mf_helmet"]:checked');
+    var dlFile = dlInput ? dlInput.files[0] : null;
+    var payFile = payInput ? payInput.files[0] : null;
+
+    // Validate DL file
+    if (dlInput && dlInput.hasAttribute('required') && !dlFile) {
+      if (errEl) errEl.textContent = 'Please upload your Driving License copy.';
+      return;
+    }
+    if (dlFile && dlFile.size > 10*1024*1024) {
+      if (errEl) errEl.textContent = 'DL file too large. Max 10MB.';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span style="display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid rgba(17,17,17,0.3);border-top-color:#111;animation:tvt-spin .7s linear infinite;vertical-align:-3px;margin-right:8px"></span>Submitting...';
+    if (errEl) errEl.textContent = '';
+
+    Promise.all([fileToBase64(dlFile), fileToBase64(payFile)]).then(function(results) {
+      var dlBase64 = results[0];
+      var payBase64 = results[1];
+      var data = {
+        source: 'modal_form',
+        full_name: (formEl.querySelector('#mf_name')||{}).value ? formEl.querySelector('#mf_name').value.trim() : '',
+        dob: (formEl.querySelector('#mf_dob')||{}).value || '',
+        gender: (formEl.querySelector('#mf_gender')||{}).value || '',
+        mobile: (formEl.querySelector('#mf_mobile')||{}).value ? formEl.querySelector('#mf_mobile').value.trim() : '',
+        whatsapp: (formEl.querySelector('#mf_whatsapp')||{}).value ? formEl.querySelector('#mf_whatsapp').value.trim() : '',
+        email: (formEl.querySelector('#mf_email')||{}).value ? formEl.querySelector('#mf_email').value.trim() : '',
+        blood_group: (formEl.querySelector('#mf_blood')||{}).value || '',
+        address: (formEl.querySelector('#mf_address')||{}).value ? formEl.querySelector('#mf_address').value.trim() : '',
+        emergency_contact_name: (formEl.querySelector('#mf_ec_name')||{}).value ? formEl.querySelector('#mf_ec_name').value.trim() : '',
+        emergency_contact_relationship: (formEl.querySelector('#mf_ec_rel')||{}).value ? formEl.querySelector('#mf_ec_rel').value.trim() : '',
+        emergency_contact_mobile: (formEl.querySelector('#mf_ec_mobile')||{}).value ? formEl.querySelector('#mf_ec_mobile').value.trim() : '',
+        dl_number: (formEl.querySelector('#mf_dl_number')||{}).value ? formEl.querySelector('#mf_dl_number').value.trim() : '',
+        dl_validity: (formEl.querySelector('#mf_dl_validity')||{}).value || '',
+        dl_copy_base64: dlBase64 || '',
+        dl_copy_filename: dlFile ? dlFile.name : '',
+        bike_brand: (formEl.querySelector('#mf_bike_brand')||{}).value || '',
+        bike_model: (formEl.querySelector('#mf_bike_model')||{}).value ? formEl.querySelector('#mf_bike_model').value.trim() : '',
+        bike_number: (formEl.querySelector('#mf_bike_number')||{}).value ? formEl.querySelector('#mf_bike_number').value.trim() : '',
+        chassis_number: (formEl.querySelector('#mf_chassis')||{}).value ? formEl.querySelector('#mf_chassis').value.trim() : '',
+        purchase_year: (formEl.querySelector('#mf_purchase_year')||{}).value || '',
+        riding_experience: (formEl.querySelector('#mf_exp')||{}).value || '',
+        ride_types: rideTypes.join(', '),
+        helmet: helmetEl ? helmetEl.value : '',
+        riding_gear: (formEl.querySelector('input[name="mf_gear"]:checked')||{}).value || '',
+        tshirt_size: (formEl.querySelector('#mf_tshirt')||{}).value || '',
+        medical_conditions: (formEl.querySelector('#mf_medical')||{}).value ? formEl.querySelector('#mf_medical').value.trim() : '',
+        referral_source: (formEl.querySelector('#mf_referral')||{}).value || '',
+        membership_type: (formEl.querySelector('#mf_mem_type')||{}).value || '',
+        payment_mode: (formEl.querySelector('#mf_pay_mode')||{}).value || '',
+        transaction_id: (formEl.querySelector('#mf_txn_id')||{}).value ? formEl.querySelector('#mf_txn_id').value.trim() : '',
+        payment_screenshot_base64: payBase64 || '',
+        payment_screenshot_filename: payFile ? payFile.name : ''
+      };
+      saveAndRedirect(data, submitBtn, errEl);
+    }).catch(function(err) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Join The Vidarbha Tigers Community';
+      if (errEl) errEl.textContent = err.message;
+    });
+  });
+}
+
+setupModalForm(document.getElementById('modalForm'));
+
+const pop=document.getElementById('pop');
+document.querySelectorAll('.open').forEach(function(b){b.addEventListener('click',function(){pop.classList.add('show')});});
+document.getElementById('x').addEventListener('click',function(){pop.classList.remove('show');});
+pop.addEventListener('click',function(e){if(e.target===pop)pop.classList.remove('show');});
+
+const target=new Date('2026-07-26T07:30:00+05:30').getTime();
+function cd(){var x=Math.max(0,target-Date.now()),v=[Math.floor(x/864e5),Math.floor(x%864e5/36e5),Math.floor(x%36e5/6e4),Math.floor(x%6e4/1e3)];['d','h','m','ss'].forEach(function(id,i){document.getElementById(id).textContent=String(v[i]).padStart(2,'0');});}cd();setInterval(cd,1000);
+const ob=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('on');});},{threshold:.1});document.querySelectorAll('.reveal').forEach(function(e){ob.observe(e);});
+
+const ham=document.getElementById('ham');const navLinks=document.getElementById('navLinks');
+ham.addEventListener('click',function(){ham.classList.toggle('open');navLinks.classList.toggle('active');});
+function closeNav(){ham.classList.remove('open');navLinks.classList.remove('active');}
+document.addEventListener('click',function(e){if(!ham.contains(e.target)&&!navLinks.contains(e.target))closeNav();});
+
+// ---- Past Rides Slider ----
+(function(){
+  var track = document.getElementById('psTrack');
+  if(!track) return;
+  var total = track.querySelectorAll('.ps-slide').length;
+  var cur = 0;
+  var timer;
+
+  function go(n){
+    cur = ((n % total) + total) % total;
+    track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+  }
+
+  function startAuto(){ clearInterval(timer); timer = setInterval(function(){ go(cur + 1); }, 3000); }
+
+  var psNext = document.getElementById('psNext');
+  var psPrev = document.getElementById('psPrev');
+  if (psNext) psNext.addEventListener('click', function(e){ e.stopPropagation(); go(cur + 1); startAuto(); });
+  if (psPrev) psPrev.addEventListener('click', function(e){ e.stopPropagation(); go(cur - 1); startAuto(); });
+  startAuto();
+})();
+
+// ---- Upcoming Events Carousel ----
+(function(){
+  var track=document.getElementById('ecTrack');
+  if(!track) return;
+  var total=track.children.length;
+  var cur=0;
+  var timer;
+  function renderDots(){
+    var dotsWrap = document.getElementById('evtCarousel').querySelector('.ec-dots');
+    if(!dotsWrap) return;
+    dotsWrap.innerHTML='';
+    for(var i=0;i<total;i++){
+      var d=document.createElement('div');
+      d.className='ec-dot'+(i===cur?' active':'');
+      d.dataset.i=i;
+      d.addEventListener('click',function(){go(+this.dataset.i);startTimer();});
+      dotsWrap.appendChild(d);
+    }
+  }
+  function go(n){
+    cur=(n+total)%total;
+    track.style.transform='translateX(-'+cur*100+'%)';
+    var dots=document.querySelectorAll('#evtCarousel .ec-dot');
+    dots.forEach(function(d,i){d.classList.toggle('active',i===cur);});
+  }
+  function next(){go(cur+1);}
+  function startTimer(){clearInterval(timer);timer=setInterval(next,4000);}
+  var ecNext=document.getElementById('ecNext');
+  var ecPrev=document.getElementById('ecPrev');
+  if (ecNext) ecNext.addEventListener('click',function(){go(cur+1);startTimer();});
+  if (ecPrev) ecPrev.addEventListener('click',function(){go(cur-1);startTimer();});
+  if(total>1){
+    renderDots();
+    startTimer();
+  }
+})();
+</script>
+<style>@keyframes tvt-spin{to{transform:rotate(360deg)}}</style>
+</body></html>
