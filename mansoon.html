@@ -248,6 +248,7 @@ a{text-decoration:none;color:inherit}
   }
 
   function setupPreview(inp,prev){
+    if(!inp || !prev) return;
     inp.addEventListener('change',function(){
       var f=inp.files[0];
       if(!f){prev.innerHTML='';return;}
@@ -260,7 +261,6 @@ a{text-decoration:none;color:inherit}
   }
 
   setupPreview(document.getElementById('mf_dl_file'), document.getElementById('mf_dl_preview'));
-  setupPreview(document.getElementById('mf_pay_ss'), document.getElementById('mf_pay_preview'));
 
   document.getElementById('eventForm').addEventListener('submit', function(e){
     e.preventDefault();
@@ -310,7 +310,8 @@ a{text-decoration:none;color:inherit}
         submittedAt: firebase.firestore.FieldValue.serverTimestamp()
       };
 
-      db.collection('tvtennqyuiry').add(data).catch(function(e){console.error(e);}).finally(function(){        document.getElementById('formSection').style.display='none';
+      db.collection('tvtennqyuiry').add(data).catch(function(e){console.error(e);}).finally(function(){
+        document.getElementById('formSection').style.display='none';
         document.getElementById('successScreen').style.display='block';
         var n=3;
         document.getElementById('countdownNum').textContent=n;
@@ -327,6 +328,5 @@ a{text-decoration:none;color:inherit}
   });
 })();
 </script>
-<style>@keyframes tvt-spin{to{transform:rotate(360deg)}}</style>
 </body>
 </html>
