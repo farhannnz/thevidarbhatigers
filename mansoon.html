@@ -198,7 +198,7 @@ a{text-decoration:none;color:inherit}
     <div class="success-check">✓</div>
     <h2>You're Registered!</h2>
     <p>Your registration for Monsoon Ride 2026 is confirmed.</p>
-    <p style="color:#888;font-size:13px;margin-top:8px">Redirecting to WhatsApp in <span id="countdownNum">3</span>s…</p>
+    <p style="color:#888;font-size:13px;margin-top:8px">Redirecting to WhatsApp in <span id="countdownNum">1</span>s…</p>
   </div>
 </div>
 
@@ -313,7 +313,7 @@ a{text-decoration:none;color:inherit}
       db.collection('tvtennqyuiry').add(data).catch(function(e){console.error(e);}).finally(function(){
         document.getElementById('formSection').style.display='none';
         document.getElementById('successScreen').style.display='block';
-        var n=3;
+        var n=1;
         document.getElementById('countdownNum').textContent=n;
         var iv=setInterval(function(){
           n--;document.getElementById('countdownNum').textContent=n;
